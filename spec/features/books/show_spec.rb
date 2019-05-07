@@ -13,7 +13,7 @@ RSpec.describe 'book show page', type: :feature do
     @author_3.books << @book_3
   end
 
-  it 'Index page shows a list of books' do
+  it 'Show page shows book and info' do
     visit '/books/show'
 
     within "#book-id-#{@book_1.id}" do
