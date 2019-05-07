@@ -1,6 +1,6 @@
 <% @books.each do |book| %>
   <section id="book-id-<%= book.id %>">
-    <h2>Title: <%= book.title %></h2>
+    <h2>Title: <%= link_to book.title, "/books/" + "#{book.id}" %></h2>
       <p>Pages: <%= book.pages %></p>
       <p>Year Published: <%= book.year_published %></p>
       <img src="<%= book.book_img_url %>">
