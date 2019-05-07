@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get '/books', to: 'books#index' 
-
+  get '/books', to: 'books#index'
+  get '/authors', to: 'authors#index'
 
 end

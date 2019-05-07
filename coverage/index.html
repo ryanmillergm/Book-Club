@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-05-07T15:39:49-06:00">2019-05-07T15:39:49-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-05-07T16:10:35-06:00">2019-05-07T16:10:35-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.03
+         1.02
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>20</b> files in total.
-    <b>59</b> relevant lines. 
-    <span class="green"><b>59</b> lines covered</span> and
+    <b>60</b> relevant lines. 
+    <span class="green"><b>60</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -61,13 +61,13 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#f17fbbdc0d940b05e304fb0adf5920c9efe85e1b" class="src_link" title="app/controllers/books_controller.rb">app/controllers/books_controller.rb</a></td>
+        <td class="strong"><a href="#9794e4c212a2fadc1c533a321c45c19937f0cd84" class="src_link" title="app/controllers/authors_controller.rb">app/controllers/authors_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>6</td>
         <td>3</td>
         <td>3</td>
         <td>0</td>
-        <td>1.3</td>
+        <td>1.0</td>
       </tr>
       
       <tr>
@@ -244,8 +244,8 @@
         <td class="strong"><a href="#375181c3a2c6fdf82522aab666193abcf0d6da98" class="src_link" title="config/routes.rb">config/routes.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>9</td>
-        <td>3</td>
-        <td>3</td>
+        <td>4</td>
+        <td>4</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -303,9 +303,9 @@
 </div>
 
       
-        <div class="source_table" id="f17fbbdc0d940b05e304fb0adf5920c9efe85e1b">
+        <div class="source_table" id="9794e4c212a2fadc1c533a321c45c19937f0cd84">
   <div class="header">
-    <h3>app/controllers/books_controller.rb</h3>
+    <h3>app/controllers/authors_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>3</b> relevant lines. 
@@ -320,7 +320,7 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">class BooksController &lt; ApplicationController</code>
+          <code class="ruby">class AuthorsController &lt; ApplicationController</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="2">
@@ -335,10 +335,10 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="4">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
           
-          <code class="ruby">    @books = Book.all</code>
+          <code class="ruby">    @authors = Author.all</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="5">
@@ -1742,8 +1742,8 @@
     <h3>config/routes.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>3</b> relevant lines. 
-      <span class="green"><b>3</b> lines covered</span> and
+      <b>4</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1784,13 +1784,13 @@
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">  get &#39;/books&#39;, to: &#39;books#index&#39; </code>
+          <code class="ruby">  get &#39;/books&#39;, to: &#39;books#index&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">  get &#39;/authors&#39;, to: &#39;authors#index&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
