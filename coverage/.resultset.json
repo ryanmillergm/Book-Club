@@ -181,13 +181,36 @@
       "/Users/techoverco-mac/turing/2module/projects/Book-Club/config/routes.rb": [
         1,
         null,
+        null,
+        1,
+        null,
         null
       ],
       "/Users/techoverco-mac/turing/2module/projects/Book-Club/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/techoverco-mac/turing/2module/projects/Book-Club/spec/models/author_books_spec.rb": [
+      "/Users/techoverco-mac/turing/2module/projects/Book-Club/spec/features/nav_bar_spec.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/techoverco-mac/turing/2module/projects/Book-Club/spec/models/author_book_spec.rb": [
         1,
         null,
         1,
@@ -253,8 +276,22 @@
         null,
         null,
         null
+      ],
+      "/Users/techoverco-mac/turing/2module/projects/Book-Club/app/controllers/welcome_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/techoverco-mac/turing/2module/projects/Book-Club/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null
       ]
     },
-    "timestamp": 1557256896
+    "timestamp": 1557259556
   }
 }
