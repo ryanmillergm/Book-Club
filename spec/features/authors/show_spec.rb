@@ -14,7 +14,7 @@ RSpec.describe 'author show page', type: :feature do
   end
 
   it 'Show page shows author and info' do
-    visit '/author/show'
+    visit '/authors/show'
 
     within "#author-id-#{@author_1.id}" do
       expect(page).to have_content('Name: Bill')
