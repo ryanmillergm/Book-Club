@@ -183,6 +183,7 @@
         null,
         null,
         1,
+        1,
         null,
         null
       ],
@@ -196,14 +197,23 @@
         null,
         1,
         null,
+        1,
+        1,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
         null,
         1,
         null,
         1,
-        0,
         null,
-        0,
-        0,
+        1,
+        1,
         null,
         0,
         null,
@@ -277,12 +287,8 @@
         null,
         null
       ],
-      "/Users/techoverco-mac/turing/2module/projects/Book-Club/app/controllers/welcome_controller.rb": [
+      "/Users/techoverco-mac/turing/2module/projects/Book-Club/app/controllers/books_controller.rb": [
         1,
-        null,
-        1,
-        null,
-        null,
         null,
         null
       ],
@@ -290,8 +296,15 @@
         1,
         1,
         null
+      ],
+      "/Users/techoverco-mac/turing/2module/projects/Book-Club/app/controllers/welcome_controller.rb": [
+        1,
+        null,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1557259556
+    "timestamp": 1557261112
   }
 }
