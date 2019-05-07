@@ -3,11 +3,20 @@ require 'pry'
 
 RSpec.describe 'Nav bar test', type: :feature do
 
+  it 'Nav Bar Should link to home page' do
+    visit books_path
 
-  it 'Nav Bar Should link to a index page' do
+    within '.top-nav' do
+      click_link('Home')
 
-    visit '/'
-    save_and_open_page
+      expect(current_path).to eq(root_path)
+    end
+  end
+
+
+  it 'Nav Bar Should link to books index page' do
+
+    visit root_path
 
     within '.top-nav' do
       click_link('Books')
