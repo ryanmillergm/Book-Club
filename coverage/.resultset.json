@@ -229,6 +229,10 @@
         1,
         0,
         null,
+        null,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/ryan/turing/2module/projects/Book-Club/app/controllers/application_controller.rb": [
@@ -237,6 +241,6 @@
         null
       ]
     },
-    "timestamp": 1557271246
+    "timestamp": 1557271304
   }
 }
