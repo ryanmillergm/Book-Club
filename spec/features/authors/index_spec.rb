@@ -15,6 +15,18 @@ RSpec.describe 'author index page', type: :feature do
 
   it 'Index page shows a list of authors' do
     visit '/authors'
+    # save_and_open_page
+    within "#author-id-#{@author_1.id}" do
+      expect(page).to have_content('Name: Bill')
+    end
+
+    within "#author-id-#{@author_2.id}" do
+      expect(page).to have_content('Name: Jerry')
+    end
+
+    within "#author-id-#{@author_3.id}" do
+      expect(page).to have_content('Name: Tom')
+    end
   end
-  
+
 end
