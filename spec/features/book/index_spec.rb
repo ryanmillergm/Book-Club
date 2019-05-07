@@ -12,7 +12,6 @@ RSpec.describe 'book index page', type: :feature do
     @author_1.books << @book_1
     @author_2.books << @book_2
     @author_3.books << @book_3
-
   end
 
   it 'Index page shows a list of books' do
@@ -37,6 +36,22 @@ RSpec.describe 'book index page', type: :feature do
       expect(page).to have_content('Title: Book_3')
       expect(page).to have_content('Pages: 300')
       expect(page).to have_content('Year Published: 1999')
+    end
+  end
+
+  it "Index page has link to book show page" do
+    visit '/books'
+
+    within "#book-id-#{@book_1.id}" do
+      expect(page).to have_link("#{@book_1.title}", href: "/books/#{@book_1.id}")
+    end
+
+    within "#book-id-#{@book_2.id}" do
+      expect(page).to have_link("#{@book_2.title}", href: "/books/#{@book_2.id}")
+    end
+
+    within "#book-id-#{@book_3.id}" do
+      expect(page).to have_link("#{@book_3.title}", href: "/books/#{@book_3.id}")
     end
   end
 end
