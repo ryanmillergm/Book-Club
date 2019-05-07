@@ -31,7 +31,7 @@ RSpec.describe 'author index page', type: :feature do
 
   it 'Index page has a link to an author show page' do
     visit '/authors'
-    save_and_open_page
+
     within "#author-id-#{@author_1.id}" do
       expect(page).to have_link("#{@author_1.name}", href: "/authors/#{@author_1.id}")
     end
