@@ -19,7 +19,7 @@ RSpec.describe 'book index page', type: :feature do
     visit '/books'
 
     within "#book-id-#{@book_1.id}" do
-      expect(page).to have_xpath('google.com')
+      expect(page).to have_xpath('//img[@src="google.com"]')
       expect(page).to have_content('Title: Book_1')
       expect(page).to have_content('Pages: 300')
       expect(page).to have_content('Year Published: 1999')
