@@ -24,5 +24,19 @@ RSpec.describe 'book index page', type: :feature do
       expect(page).to have_content('Pages: 300')
       expect(page).to have_content('Year Published: 1999')
     end
+
+    within "#book-id-#{@book_2.id}" do
+      expect(page).to have_xpath('//img[@src="google.com"]')
+      expect(page).to have_content('Title: Book_2')
+      expect(page).to have_content('Pages: 300')
+      expect(page).to have_content('Year Published: 1999')
+    end
+
+    within "#book-id-#{@book_3.id}" do
+      expect(page).to have_xpath('//img[@src="google.com"]')
+      expect(page).to have_content('Title: Book_3')
+      expect(page).to have_content('Pages: 300')
+      expect(page).to have_content('Year Published: 1999')
+    end
   end
 end
