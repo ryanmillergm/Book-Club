@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get '/books', to: 'books#index' 
+  get '/books', to: 'books#index'
+
+  resources :books, only:[:index, :show]
 
 
 end
