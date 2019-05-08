@@ -1,0 +1,20 @@
+<section id="book-id-<%= @book.id %>">
+  <img src="<%= @book.book_img_url %>">
+  <h2>Title: <%= @book.title %></h2>
+  <p>Author(s): <% @book.authors.each do |author| %>
+    <%= author.name %></p>
+  <% end %>
+  <p>Pages: <%= @book.pages %></p>
+</section>
+<br>
+<br>
+<% @book.reviews.each do |review| %>
+  <section id="review-id-<%= review.id %>">
+    <h2>Title: <%= review.title %></h2>
+    <p>User: <%= review.user.name %></p>
+    <p>Rating: <%= review.rating %></p>
+    <p>Contents: <%= review.text %></p>
+  </section>
+  <br>
+  <br>
+<% end %>
