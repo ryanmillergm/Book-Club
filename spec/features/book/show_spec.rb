@@ -44,15 +44,6 @@ RSpec.describe 'Book show page', type: :feature do
       expect(page).to have_content('User: Henry')
       expect(page).to have_content('Rating: 4')
       expect(page).to have_content('Contents: Review 3 description')
-      save_and_open_page
     end
   end
 end
-
-# User Story 10
-# Book Show Page
-#
-#
-# Each review will have a title and user, a numeric rating
-# from 1 to 5, and text for the review itself, and all content
-# must be present for each review.

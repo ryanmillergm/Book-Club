@@ -1,4 +1,7 @@
-<section id="book-id-<%= @book.id %>">
+
+<section class='book-card' id="book-id-<%= @book.id %>">
+  <br>
+  <br>
   <img src="<%= @book.book_img_url %>">
   <h2>Title: <%= @book.title %></h2>
   <p>Author(s): <% @book.authors.each do |author| %>
@@ -8,13 +11,19 @@
 </section>
 <br>
 <br>
-<% @book.reviews.each do |review| %>
-  <section id="review-id-<%= review.id %>">
-    <h2>Title: <%= review.title %></h2>
-    <p>User: <%= review.user.name %></p>
-    <p>Rating: <%= review.rating %></p>
-    <p>Contents: <%= review.text %></p>
-  </section>
+<div class="review-description" %>
+  <h1>Reviews</h1>
   <br>
   <br>
-<% end %>
+  <% @book.reviews.each do |review| %>
+    <section id="review-id-<%= review.id %>">
+      <h2>Title: <%= review.title %></h2>
+      <br>
+      <p>User: <%= review.user.name %></p>
+      <p>Rating: <%= review.rating %></p>
+      <p>Contents: <%= review.text %></p>
+    </section>
+    <br>
+    <br>
+  <% end %>
+</div>
