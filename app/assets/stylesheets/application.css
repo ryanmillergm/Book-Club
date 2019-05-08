@@ -14,20 +14,85 @@
  *= require_self
  */
 
+h1 {
+ margin-left: 1rem;
+ margin-top: 1rem;
+ font-size: 2rem;
+ color: 	#585858;
+ font-family: 'Muli', sans-serif;
+ text-decoration: none;
+}
 
- .top-nav {
-   padding-top: 40px;
-   flex-direction: row;
-   justify-content: space-around;
-   width: 60%;
- }
+h2 {
+ margin-left: 1rem;
+ margin-top: 1rem;
+ font-size: 1.65rem;
+ color: 	#585858;
+ font-family: 'Muli', sans-serif;
+ text-decoration: none;
+}
 
- .top-nav a {
-   color: gray;
-   text-decoration: none;
-   font-family: 'Muli', sans-serif;
-   margin-left: 1rem;
-   margin-right: 1rem;
-   width: 50%;
-   font-size: 1.5rem;
- }
+h3 {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  font-size: 1.35rem;
+  color: 	#585858;
+  font-family: 'Muli', sans-serif;
+  text-decoration: none;
+}
+
+p   {
+  font-size: 1.25rem;
+  color: 	#585858;
+  font-family: 'Muli', sans-serif;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.top-nav {
+ padding-top: 40px;
+ flex-direction: row;
+ justify-content: space-around;
+ width: 60%;
+}
+
+.top-nav a {
+ color: gray;
+ text-decoration: none;
+ font-family: 'Muli', sans-serif;
+ margin-left: 1rem;
+ margin-right: 1rem;
+ width: 50%;
+ font-size: 1.5rem;
+}
+
+.book-ctn {
+display: flex;
+flex-wrap: wrap;
+height: 400px;
+justify-content: center;
+}
+
+.book-card {
+ transition: 0.3s;
+ box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+ width: 29%;
+ padding: 5px;
+ margin: 25px;
+ background-color: #E0E0E0;
+ text-align: center;
+ border:1px solid #021a40;
+}
+
+.book-card img {
+ max-width: 200px;
+ object-fit: cover;
+ margin-left: 15%;
+ margin-right: 15%;
+}
+
+.review-description {
+max-width: 800px;
+padding: 40px;
+
+}
