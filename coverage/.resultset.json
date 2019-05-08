@@ -187,15 +187,6 @@
         1,
         null,
         1,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/techoverco-mac/turing/2module/projects/Book-Club/app/helpers/application_helper.rb": [
-        1,
-        null
       ],
       "/Users/techoverco-mac/turing/2module/projects/Book-Club/spec/features/book/index_spec.rb": [
         1,
@@ -360,11 +351,6 @@
         1,
         null,
         1,
-        1,
-        2,
-        2,
-        null,
-        null
       ],
       "/Users/techoverco-mac/turing/2module/projects/Book-Club/app/models/author.rb": [
         1,
@@ -491,7 +477,4 @@
         null,
         null
       ]
-    },
-    "timestamp": 1557287164
-  }
 }

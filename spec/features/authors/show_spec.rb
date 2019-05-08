@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'author index page', type: :feature do
+RSpec.describe 'author show page', type: :feature do
   before :each do
     @book_1 = Book.create!(title: "Book_1", pages: 300, year_published: 1999, book_img_url: "google.com")
     @book_2 = Book.create!(title: "Book_2", pages: 300, year_published: 1999, book_img_url: "google.com")
@@ -13,9 +13,9 @@ RSpec.describe 'author index page', type: :feature do
     @author_3.books << @book_3
   end
 
-  it 'Index page shows a list of authors' do
-    visit '/authors'
-    # save_and_open_page
+  it 'Show page shows author and info' do
+    visit '/authors/show'
+
     within "#author-id-#{@author_1.id}" do
       expect(page).to have_content('Name: Bill')
     end
@@ -28,13 +28,4 @@ RSpec.describe 'author index page', type: :feature do
       expect(page).to have_content('Name: Tom')
     end
   end
-
-  it 'Index page has a link to an author show page' do
-    visit '/authors'
-
-    within "#author-id-#{@author_1.id}" do
-      expect(page).to have_link("#{@author_1.name}", href: "/authors/#{@author_1.id}")
-    end
-  end
-
 end

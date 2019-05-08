@@ -1,9 +1,15 @@
 
+
+
+
+
 <section class='book-card' id="book-id-<%= @book.id %>">
   <br>
   <br>
   <img src="<%= @book.book_img_url %>">
   <h2>Title: <%= @book.title %></h2>
+      <p>Pages: <%= @book.pages %></p>
+      <p>Year Published: <%= @book.year_published %></p>
   <p>Author(s): <% @book.authors.each do |author| %>
     <%= author.name %></p>
   <% end %>
