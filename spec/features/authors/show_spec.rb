@@ -8,6 +8,12 @@ RSpec.describe 'author show page', type: :feature do
     @author_1 = Author.create!(name: "Bill")
     @author_2 = Author.create!(name: "Jerry")
     @author_3 = Author.create!(name: "Tom")
+    @review_1 = Review.create!(title: "Review_1", rating: 3, text: "Review 1 description")
+    @review_2 = Review.create!(title: "Review_2", rating: 2, text: "Review 2 description")
+    @review_3 = Review.create!(title: "Review_3", rating: 4, text: "Review 3 description")
+    @book_1.reviews << @review_1
+    @book_1.reviews << @review_2
+    @book_1.reviews << @review_3
     @author_1.books << @book_1
     @author_2.books << @book_2
     @author_3.books << @book_3
@@ -38,8 +44,12 @@ RSpec.describe 'author show page', type: :feature do
 
     within "#book-id-#{@book_1.id}" do
       expect(page).to have_content('Top Review:')
+    end
 
-    # save_and_open_page
+    within "#book-id-#{@book_1.id}" do
+      expect(page).to have_content(@review_3.title)
+      expect(page).to have_content(@review_3.rating)
+      expect(page).to have_content(@review_3.text)
     end
   end
 end
