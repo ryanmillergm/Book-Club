@@ -9,9 +9,7 @@ class Book < ApplicationRecord
                         :book_img_url
 
   def top_review
-    # binding.pry
-    # self.
-    # @book_1.reviews
+    self.reviews.order("rating DESC").first
   end
 
 end

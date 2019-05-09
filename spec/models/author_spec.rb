@@ -8,13 +8,16 @@ RSpec.describe Author, type: :model do
 
   before :each do
     @book_1 = Book.create!(title: "Book_1", pages: 300, year_published: 1999, book_img_url: "google.com")
+    @book_2 = Book.create!(title: "Book_2", pages: 300, year_published: 1999, book_img_url: "google.com")
     @author_1 = Author.create!(name: "Bill")
     @review_1 = Review.create!(title: "Review_1", rating: 3, text: "Review 1 description")
     @review_2 = Review.create!(title: "Review_2", rating: 2, text: "Review 2 description")
     @review_3 = Review.create!(title: "Review_3", rating: 4, text: "Review 3 description")
+    @review_4 = Review.create!(title: "Review_4", rating: 4, text: "Review 3 description")
     @book_1.reviews << @review_1
     @book_1.reviews << @review_2
     @book_1.reviews << @review_3
+    @book_2.reviews << @review_4
     @author_1.books << @book_1
   end
 
