@@ -53,4 +53,5 @@ RSpec.describe 'book index page', type: :feature do
       expect(page).to have_link("#{@book_3.title}", href: "/books/#{@book_3.id}")
     end
   end
+
 end

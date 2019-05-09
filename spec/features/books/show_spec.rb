@@ -74,4 +74,15 @@ RSpec.describe 'book show page', type: :feature do
       expect(page).to have_content('Contents: Review 3 description')
     end
   end
+
+  it "Index page Authors links to author show page" do
+    visit books_path(@book_1)
+
+    expect(page).to have_link(@book_1.title)
+
+    click_link @book_1.title
+
+    expect(current_path).to eq(book_path(@book_1))
+    expect(page).to have_content(@author_1.name)
+  end
 end
