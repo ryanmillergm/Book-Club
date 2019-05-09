@@ -5,7 +5,7 @@ RSpec.describe 'A review can be successfully created' do
     before :each do
       @book_1 = Book.create!(title: "Book_1", pages: 300, year_published: 1999, book_img_url: "google.com")
     end
-    
+
     it 'Creates a new review' do
       visit book_path(@book_1)
 
@@ -16,7 +16,6 @@ RSpec.describe 'A review can be successfully created' do
 
       expect(current_path).to eq(new_book_review_path(@book_1))
 
-      fill_in "Username", with: "lucky777"
       fill_in "Title", with: "New Review"
       fill_in "Rating", with: 3
       fill_in "Text", with: "New review description."
