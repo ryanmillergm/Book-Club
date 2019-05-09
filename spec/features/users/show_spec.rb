@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User Show Page' do
+RSpec.describe 'User Show Page Links' do
   describe 'When a user clicks on a link for a user' do
     before :each do
       @book_1 = Book.create!(title: "Book_1", pages: 300, year_published: 1999, book_img_url: "google.com")
@@ -25,7 +25,12 @@ RSpec.describe 'User Show Page' do
       end
 
       expect(page).to eq(user_path(@user_1))
-
     end
   end
 end
+
+
+# As a visitor
+# With the exception of a user's show page,
+# Anywhere I see a user's name on the site for a book review,
+# I can click on the name to go to that user's show page.
