@@ -1,8 +1,12 @@
 
 <%= form_for [@book, @review] do |f| %>
 
-<%= f.label :username %>
-<%= f.text_field :username %>
+<%= f.fields_for @user do |g|%>
+
+<%= g.label :name %>
+<%= g.text_field :name %>
+
+<% end %>
 
 <%= f.label :title %>
 <%= f.text_field :title %>
