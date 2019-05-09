@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+
   # get '/books', to: 'books#index'
   # get '/books/show', to: 'books#show'
   # get '/authors', to: 'authors#index'
@@ -14,5 +15,6 @@ Rails.application.routes.draw do
   end
 
   resources :authors, only:[:index, :show]
+
 
 end

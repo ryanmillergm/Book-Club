@@ -14,18 +14,23 @@ RSpec.describe 'author show page', type: :feature do
   end
 
   it 'Show page shows author and info' do
-    visit '/authors/show'
+    visit author_path(@author_1)
 
     within "#author-id-#{@author_1.id}" do
       expect(page).to have_content('Name: Bill')
+      expect(page).to_not have_content('Name: Jerry')
     end
 
-    within "#author-id-#{@author_2.id}" do
-      expect(page).to have_content('Name: Jerry')
-    end
-
-    within "#author-id-#{@author_3.id}" do
-      expect(page).to have_content('Name: Tom')
-    end
   end
 end
+
+# User Story 14
+# Author Show Page
+#
+# As a Visitor,
+# When I visit an author's show page
+# I see all book titles by that author
+# Each book should show its year of publication
+# Each book should show its number of pages
+# Each book should show a list of any other authors
+# (exclude this show page's author from that list)
