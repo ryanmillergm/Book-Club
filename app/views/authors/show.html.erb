@@ -1,5 +1,17 @@
-<% @authors.each do |author| %>
-  <section id="author-id-<%= author.id %>">
-    <h2>Name: <%= author.name %></h2>
+  <section class='book-card' id="author-id-<%= @author.id %>">
+    <h2>Name: <%= @author.name %></h2>
+    <p>Title(s):<% @author.books.each do |book| %></p>
+    <p><%= book.title =%></p>
+    <% end %>
   </section>
-<% end %>
+
+  <section class='book-ctn'>
+    <% @author.books.each do |book| %>
+      <section class='book-card' id="book-id-<%= book.id %>">
+        <h2>Title: <%= link_to book.title, "/books/" + "#{book.id}" %></h2>
+          <p>Pages: <%= book.pages %></p>
+          <p>Year Published: <%= book.year_published %></p>
+          <img src="<%= book.book_img_url %>">
+      </section>
+    <% end %>
+  </section>
