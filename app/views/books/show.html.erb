@@ -1,8 +1,6 @@
-
-
-
-
-
+<section class='new-review-link'>
+  <%= link_to 'Add a Review', new_book_review_path(@book) %>
+</section>
 <section class='book-card' id="book-id-<%= @book.id %>">
   <br>
   <br>
@@ -25,7 +23,11 @@
     <section id="review-id-<%= review.id %>">
       <h2>Title: <%= review.title %></h2>
       <br>
-      <p>User: <%= review.user.name %></p>
+      <% if review.user != nil %>
+        <p>User: <%= review.user.name %></p>
+      <% else %>
+        <p>User: <%= review.username %></p>
+      <% end %>
       <p>Rating: <%= review.rating %></p>
       <p>Contents: <%= review.text %></p>
     </section>
