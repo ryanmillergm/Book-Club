@@ -54,22 +54,6 @@ RSpec.describe 'author show page', type: :feature do
   end
 end
 
-# User Story 4
-# All author names are links to a show page
-#
-# As a visitor
-# With the exception of an author's show page,
-# Anywhere I see an author's name on the site,
-# I can click on the name to go to that author's show page.
-
-# User Story 15
-# Author Show Page displays top review for each book
-# As a Visitor,
-# When I visit an author's show page,
-# Next to each book written by that author
-# I should see one of the highest rated reviews
-# (review should contain the title, score, and user name)
-
 # User Story 20
 # User can delete an author
 #
