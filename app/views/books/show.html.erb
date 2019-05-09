@@ -24,11 +24,7 @@
     <section id="review-id-<%= review.id %>">
       <h2>Title: <%= review.title %></h2>
       <br>
-      <% if review.user != nil %>
-        <p>User: <%= review.user.name %></p>
-      <% else %>
-        <p>User: <%= review.username %></p>
-      <% end %>
+      <p>User: <%= link_to review.user.name, user_path(review.user) %></p>
       <p>Rating: <%= review.rating %></p>
       <p>Contents: <%= review.text %></p>
     </section>
