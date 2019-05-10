@@ -10,11 +10,13 @@ Rails.application.routes.draw do
   # get '/authors/show', to: 'authors#show'
   # get '/authors', to: 'authors#index'
 
-  resources :books, only:[:index, :show, :new] do
+  # resources :books, only:[:index, :show, :new, :post] do
+  resources :books  do
     resources :reviews, only:[:new, :create]
   end
 
   resources :authors, only:[:index, :show]
+
 
 
 end
