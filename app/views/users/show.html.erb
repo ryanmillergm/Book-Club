@@ -1,1 +1,21 @@
-<% @user %>
+
+<section class="user-card">
+<h2>User: <%= @user.name %></h2>
+</section>
+<br>
+<section class="review-description">
+  <h1>Reviews</h1>
+  <br>
+  <br>
+  <% @user.reviews.each do |review| %>
+    <section id="review-id-<%= review.id %>">
+      <h2>Title: <%= review.title %></h2>
+      <p>User: <%= @user.name %></p>
+      <br>
+      <p>Rating: <%= review.rating %></p>
+      <p>Contents: <%= review.text %></p>
+    </section>
+    <br>
+    <br>
+  <% end %>
+</section>
