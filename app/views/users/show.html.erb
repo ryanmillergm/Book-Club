@@ -18,6 +18,7 @@
           <img src="<%= review.book.book_img_url %>">
           <p>Book Title: <%= link_to review.book.title, book_path(review.book)  %>
           <p>Contents: <%= review.text %></p>
+          <p>Date: <%= review.created_at.time %></p>
         </section>
       </section>
       <% end %>
