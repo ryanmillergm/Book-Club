@@ -30,7 +30,7 @@ RSpec.describe 'author show page', type: :feature do
 
     within "#book-id-#{@book_1.id}" do
       expect(page).to have_xpath('//img[@src="google.com"]')
-      expect(page).to have_content('Title: Book_1')
+      expect(page).to have_content('Title: Book 1')
       expect(page).to have_content('Pages: 300')
       expect(page).to have_content('Year Published: 1999')
     end

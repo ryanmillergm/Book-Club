@@ -7,6 +7,10 @@ class Book < ApplicationRecord
                         :pages,
                         :year_published
 
+  before_save do |book|
+    book.title = book.title.downcase.titleize
+  end
+
   def top_review
     self.reviews.order("rating DESC").first
   end

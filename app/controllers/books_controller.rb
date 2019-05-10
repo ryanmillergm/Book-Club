@@ -14,10 +14,14 @@ class BooksController < ApplicationController
   end
 
   def create
+    if params["book"]["book_img_url"] == ''
+      params["book"]["book_img_url"] = "https://ibf.org/site_assets/img/placeholder-book-cover-default.png"
+    end
     @book = Book.find_or_create_by(book_params)
     @book.save
     create_authors
-    redirect_to books_path
+
+    redirect_to book_path(@book)
   end
 
   def create_authors
