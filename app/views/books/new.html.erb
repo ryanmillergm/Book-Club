@@ -1,4 +1,4 @@
-<%= form_for Book.new do |f| %>
+<%= form_for @book do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
 
@@ -11,7 +11,7 @@
   <%= f.label :book_img_url %>
   <%= f.text_field :book_img_url %>
 
-  <%= f.label :author %>
+  <%= f.label :authors %>
   <%= f.text_field :authors %>
 
   <%= f.submit %>

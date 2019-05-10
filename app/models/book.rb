@@ -5,8 +5,7 @@ class Book < ApplicationRecord
 
   validates_presence_of :title,
                         :pages,
-                        :year_published,
-                        :book_img_url
+                        :year_published
 
   def top_review
     self.reviews.order("rating DESC").first
