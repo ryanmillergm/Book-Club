@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User Show Page Links' do
+RSpec.describe 'User Show Page' do
   describe 'When a user clicks on a link for a user' do
     before :each do
       @book_1 = Book.create!(title: "Book_1", pages: 300, year_published: 1999, book_img_url: "google.com")
@@ -24,13 +24,53 @@ RSpec.describe 'User Show Page Links' do
         end
       end
 
-      expect(page).to eq(user_path(@user_1))
+      expect(current_path).to eq(user_path(@user_1))
+    end
+
+    it 'It sees all of the users information' do
+
+      visit user_path(@user_1)
+
+      within ".user-card" do
+        expect(page).to have_content("User: #{@user_1.name}")
+      end
+
+      within "#review-id-#{@review_1.id}" do
+        expect(page).to have_content("Title: #{@review_1.title}")
+        expect(page).to have_content("User: #{@user_1.name}")
+        expect(page).to have_content("Rating: #{@review_1.rating}")
+        expect(page).to have_xpath('//img[@src="google.com"]')
+        expect(page).to have_link("#{@book_1.title}")
+        expect(page).to have_content("Contents: #{@review_1.text}")
+      end
+
+      within "#review-id-#{@review_2.id}" do
+        expect(page).to have_content("Title: #{@review_2.title}")
+        expect(page).to have_content("User: #{@user_1.name}")
+        expect(page).to have_content("Rating: #{@review_2.rating}")
+        expect(page).to have_xpath('//img[@src="google.com"]')
+        expect(page).to have_link("#{@book_2.title}")
+        expect(page).to have_content("Contents: #{@review_2.text}")
+      end
+
+      within "#review-id-#{@review_3.id}" do
+        expect(page).to have_content("Title: #{@review_3.title}")
+        expect(page).to have_content("User: #{@user_1.name}")
+        expect(page).to have_content("Rating: #{@review_3.rating}")
+        expect(page).to have_xpath('//img[@src="google.com"]')
+        expect(page).to have_link("#{@book_3.title}")
+        expect(page).to have_content("Contents: #{@review_3.text}")
+      end
     end
   end
 end
 
-
-# As a visitor
-# With the exception of a user's show page,
-# Anywhere I see a user's name on the site for a book review,
-# I can click on the name to go to that user's show page.
+# I should see all reviews that this
+# user has written.
+# Each review shows:
+# - the title of the review
+# - the description of the review
+# - the rating of the review
+# - the title of the book
+# - the thumbnail image for the book
+# - the date the review was written

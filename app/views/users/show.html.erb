@@ -1,1 +1,28 @@
-<% @user %>
+
+<section class="user-card">
+<h2>User: <%= @user.name %></h2>
+</section>
+<br>
+  <section class="review-description">
+    <h1>Reviews</h1>
+    <br>
+    <br>
+    <section class="book-ctn">
+    <% @user.reviews.each do |review| %>
+      <section class="book-card">
+        <section id="review-id-<%= review.id %>">
+          <h2>Title: <%= review.title %></h2>
+          <p>User: <%= @user.name %></p>
+          <br>
+          <p>Rating: <%= review.rating %></p>
+          <img src="<%= review.book.book_img_url %>">
+          <p>Book Title: <%= link_to review.book.title, book_path(review.book)  %>
+          <p>Contents: <%= review.text %></p>
+          <p>Date: <%= review.created_at.time %></p>
+        </section>
+      </section>
+      <% end %>
+    </section>
+      <br>
+      <br>
+</section>
