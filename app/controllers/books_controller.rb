@@ -9,20 +9,33 @@ class BooksController < ApplicationController
   end
 
   def new
-    book = Book.new
+    @book = Book.new
+    @author = Author.new
   end
 
   def create
-    binding.pry
-    author = Author.find_or_create_by(title: book_params[:book][:authors])
-    book = Book.create(book_params)
-    author << book
-    redirect_to books_path
+    if params["book"]["book_img_url"] == ''
+      params["book"]["book_img_url"] = "https://ibf.org/site_assets/img/placeholder-book-cover-default.png"
+    end
+    @book = Book.find_or_create_by(book_params)
+    @book.save
+    create_authors
+
+    redirect_to book_path(@book)
+  end
+
+  def create_authors
+    params[:book][:authors].split(", ").map do |author|
+      author = Author.find_or_create_by(name: author)
+      author.save
+      author.books << @book
+    end
   end
 
   private
 
+
   def book_params
-    params.require(:book).permit(:title, :pages, :year_published, :book_img_url, :authors)
+    params.require(:book).permit(:title, :pages, :year_published, :book_img_url)
   end
 end

@@ -5,8 +5,11 @@ class Book < ApplicationRecord
 
   validates_presence_of :title,
                         :pages,
-                        :year_published,
-                        :book_img_url
+                        :year_published
+
+  before_save do |book|
+    book.title = book.title.downcase.titleize
+  end
 
   def top_review
     self.reviews.order("rating DESC").first

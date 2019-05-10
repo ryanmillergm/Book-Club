@@ -11,7 +11,6 @@ RSpec.describe Book, type: :model do
     it { should validate_presence_of :title }
     it { should validate_presence_of :pages }
     it { should validate_presence_of :year_published }
-    it { should validate_presence_of :book_img_url }
   end
 
   before :each do
