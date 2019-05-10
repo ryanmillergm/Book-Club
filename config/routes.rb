@@ -3,18 +3,12 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-
-  # get '/books', to: 'books#index'
-  # get '/books/show', to: 'books#show'
-  # get '/authors', to: 'authors#index'
-  # get '/authors/show', to: 'authors#show'
-  # get '/authors', to: 'authors#index'
-
-  resources :books, only:[:index, :show] do
+  resources :books  do
     resources :reviews, only:[:new, :create]
   end
 
   resources :authors, only:[:index, :show]
 
   resources :users, only:[:show]
+
 end
