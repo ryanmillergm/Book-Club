@@ -39,6 +39,8 @@ RSpec.describe 'User Show Page' do
         expect(page).to have_content("Title: #{@review_1.title}")
         expect(page).to have_content("User: #{@user_1.name}")
         expect(page).to have_content("Rating: #{@review_1.rating}")
+        expect(page).to have_xpath('//img[@src="google.com"]')
+        expect(page).to have_link("#{@book_1.title}")
         expect(page).to have_content("Contents: #{@review_1.text}")
       end
 
@@ -46,6 +48,8 @@ RSpec.describe 'User Show Page' do
         expect(page).to have_content("Title: #{@review_2.title}")
         expect(page).to have_content("User: #{@user_1.name}")
         expect(page).to have_content("Rating: #{@review_2.rating}")
+        expect(page).to have_xpath('//img[@src="google.com"]')
+        expect(page).to have_link("#{@book_2.title}")
         expect(page).to have_content("Contents: #{@review_2.text}")
       end
 
@@ -53,6 +57,8 @@ RSpec.describe 'User Show Page' do
         expect(page).to have_content("Title: #{@review_3.title}")
         expect(page).to have_content("User: #{@user_1.name}")
         expect(page).to have_content("Rating: #{@review_3.rating}")
+        expect(page).to have_xpath('//img[@src="google.com"]')
+        expect(page).to have_link("#{@book_3.title}")
         expect(page).to have_content("Contents: #{@review_3.text}")
       end
     end
