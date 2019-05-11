@@ -2,6 +2,11 @@
 <section class='new-review-link'>
   <p><%= link_to 'Add a Review', new_book_review_path(@book) %></p>
 </section>
+
+<section class='delete-book-link'>
+  <p><%= link_to 'Delete Book', book_path(@book), method: :delete %></p>
+</section>
+
 <section class='book-card' id="book-id-<%= @book.id %>">
   <br>
   <br>
