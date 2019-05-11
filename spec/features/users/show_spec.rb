@@ -65,6 +65,17 @@ RSpec.describe 'User Show Page' do
   end
 end
 
+# User Story 18
+# User can delete a book review
+#
+# As a Visitor,
+# When I visit a user's show page,
+# I see a link next to each review to delete the review.
+# When I delete a review I am returned to the user's show page
+# Then I should no longer see that review.
+
+
+
 # I should see all reviews that this
 # user has written.
 # Each review shows:

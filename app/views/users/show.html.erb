@@ -11,6 +11,7 @@
     <% @user.reviews.each do |review| %>
       <section class="book-card">
         <section id="review-id-<%= review.id %>">
+          <%= link_to "Delete Review", book_review_path(review), method: :delete %>
           <h2>Title: <%= review.title %></h2>
           <p>User: <%= @user.name %></p>
           <br>
