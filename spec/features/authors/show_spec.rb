@@ -63,3 +63,16 @@ end
 # If this author co-authored a book with someone else, that book should also be deleted, but not the other author.
 #
 # (you may need to delete other content before you can delete an author or book)
+
+# User Story 20
+# User can delete an author
+#
+# As a Visitor,
+# When I visit an author's show page,
+# I see a link on the page to delete the author.
+# This link should return me to the book index page where I
+# no longer see this author listed.
+# If this author was the only author for any book, that book is also deleted.
+# If this author co-authored a book with someone else, that book should also be deleted, but not the other author.
+#
+# (you may need to delete other content before you can delete an author or book)

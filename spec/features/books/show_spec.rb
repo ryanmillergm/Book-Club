@@ -86,3 +86,14 @@ RSpec.describe 'book show page', type: :feature do
     expect(page).to have_content(@author_1.name)
   end
 end
+
+# User Story 19
+# User can delete a book
+#
+# As a Visitor,
+# When I visit a book's show page,
+# I see a link on the page to delete the book.
+# This link should return me to the book index page where I
+# no longer see this book listed.
+#
+# (your controller may need to delete other content before you can delete the book)
