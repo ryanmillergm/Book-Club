@@ -8,6 +8,9 @@
       <h2>Title: <%= link_to book.title, "/books/" + "#{book.id}" %></h2>
         <p>Pages: <%= book.pages %></p>
         <p>Year Published: <%= book.year_published %></p>
+        <p>Author(s): <% book.authors.each do |author| %>
+          <%= link_to author.name, author_path(author) %></p>
+          <% end %>
         <img src="<%= book.book_img_url %>">
     </section>
   <% end %>
