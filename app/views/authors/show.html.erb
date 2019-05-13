@@ -1,21 +1,29 @@
-  <section class='book-card' id="author-id-<%= @author.id %>">
-    <h2>Name: <%= @author.name %></h2>
-    <p>Title(s):<% @author.books.each do |book| %></p>
-    <p><%= book.title =%></p>
-    <% end %>
-  </section>
+<section class='delete-author-link'>
+  <p><%= link_to 'Delete this Author', author_path(@author), method: :delete %></p>
+</section>
 
-  <section class='book-ctn'>
-    <% @author.books.each do |book| %>
-      <section class='book-card' id="book-id-<%= book.id %>">
-        <h2>Title: <%= link_to book.title, "/books/" + "#{book.id}" %></h2>
-          <p>Pages: <%= book.pages %></p>
-          <p>Year Published: <%= book.year_published %></p>
-          <img src="<%= book.book_img_url %>">
-          <p>Top Review:</p>
-          <p><%= book.top_review.title %></p>
-          <p><%= book.top_review.rating %></p>
-          <p><%= book.top_review.text %></p>
-      </section>
-    <% end %>
-  </section>
+<section class='book-card' id="author-id-<%= @author.id %>">
+  <h2>Name: <%= @author.name %></h2>
+  <p>Title(s):<% @author.books.each do |book| %></p>
+  <p><%= book.title =%></p>
+  <% end %>
+</section>
+
+<section class='book-ctn'>
+  <% @author.books.each do |book| %>
+    <section class='book-card' id="book-id-<%= book.id %>">
+      <h2>Title: <%= link_to book.title, "/books/" + "#{book.id}" %></h2>
+        <p>Pages: <%= book.pages %></p>
+        <p>Year Published: <%= book.year_published %></p>
+        <img src="<%= book.book_img_url %>">
+        <p>Top Review:</p>
+        <% if book.top_review == nil %>
+        <p>There are no reviews for this book yet.</p>
+        <% else %>
+        <p><%= book.top_review.title %></p>
+        <p><%= book.top_review.rating %></p>
+        <p><%= book.top_review.text %></p>
+        <% end %>
+    </section>
+  <% end %>
+</section>
