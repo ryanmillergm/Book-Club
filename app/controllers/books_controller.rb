@@ -2,6 +2,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
+    # @top_reviewers = User.top_reviewers
   end
 
   def show
