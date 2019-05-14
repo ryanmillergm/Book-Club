@@ -1,3 +1,45 @@
+<h1>Book Statistics</h1>
+<section class="statistics-area">
+  <section class="stats-card" id="highest-rated-books">
+    <h2>Top Books</h2>
+    <br>
+    <% @books.highest_rated_books.each do |book| %>
+    <section id="top-book-card-<%= book.id %>">
+      <h3><%= link_to book.title, book_path(book) %></h3>
+      <br>
+      <p>Average Rating: <%= book.average_rating.round(2) %></p>
+      <br>
+    </section>
+    <% end %>
+  </section>
+
+  <section class="stats-card" id="lowest-rated-books">
+    <h2>Worst Books</h2>
+    <br>
+    <% @books.lowest_rated_books.each do |book| %>
+    <section id="btm-book-card-<%= book.id %>">
+      <h3><%= link_to book.title, book_path(book) %></h3>
+      <br>
+      <p>Average Rating: <%= book.average_rating.round(2) %></p>
+      <br>
+    </section>
+    <% end %>
+  </section>
+
+  <section class="stats-card" id="users-with-most-reviews">
+    <h2>Users with Most Reviews</h2>
+    <br>
+    <% @top_reviewers.each do |user| %>
+    <section id="user-card-<%= user.id %>">
+      <h3><%= link_to user.name, user_path(user) %></h3>
+      <br>
+      <p>Review Count: <%= user.reviews.count %></p>
+      <br>
+    </section>
+    <% end %>
+  </section>
+</section> %>
+
 <section class='new-book-link'>
   <p><%= link_to 'Add a new Book', new_book_path %></p>
 </section>

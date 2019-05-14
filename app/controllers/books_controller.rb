@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @sort = params[:sort]
-    # binding.pry
+    @top_reviewers = User.top_reviewers
     if @sort != nil
      if @sort == "pages_asc"
        @books = Book.sort_pages('pages ASC')
@@ -20,6 +20,7 @@ class BooksController < ApplicationController
      end
 
    end
+    
   end
 
   def show
