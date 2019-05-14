@@ -45,6 +45,8 @@ RSpec.describe 'book index page', type: :feature do
       expect(page).to have_content('Title: Book 1')
       expect(page).to have_content('Pages: 307')
       expect(page).to have_content('Year Published: 1999')
+      expect(page).to have_content('Author(s): Bill')
+
     end
 
     within "#book-id-#{@book_2.id}" do
@@ -52,6 +54,7 @@ RSpec.describe 'book index page', type: :feature do
       expect(page).to have_content('Title: Book 2')
       expect(page).to have_content('Pages: 302')
       expect(page).to have_content('Year Published: 1999')
+      expect(page).to have_content('Author(s): Jerry')
     end
 
     within "#book-id-#{@book_3.id}" do
@@ -59,6 +62,7 @@ RSpec.describe 'book index page', type: :feature do
       expect(page).to have_content('Title: Book 3')
       expect(page).to have_content('Pages: 350')
       expect(page).to have_content('Year Published: 1999')
+      expect(page).to have_content('Author(s): Tom')
     end
   end
 
