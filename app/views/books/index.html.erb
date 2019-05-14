@@ -2,6 +2,11 @@
   <p><%= link_to 'Add a new Book', new_book_path %></p>
 </section>
 
+<p><a href="/books?sort=pages_asc">Sort pages ascending</a>
+<p><a href="/books?sort=pages_desc">Sort pages decending</a>
+<p><a href="/books?sort=reviews_desc">Sort Most reviews</a>
+<p><a href="/books?sort=reviews_asc">Sort Least reviews</a>
+
 <section class='book-ctn'>
   <% @books.each do |book| %>
     <section class='book-card' id="book-id-<%= book.id %>">

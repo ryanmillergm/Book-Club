@@ -15,4 +15,23 @@ class Book < ApplicationRecord
     self.reviews.order("rating DESC").first
   end
 
+
+  def average_rating
+     self.reviews.average(:rating)
+  end
+
+  def self.sort_pages(pages)
+    Book.order(pages)
+  end
+
+  def self.sort_reviews(sort_order)
+    Book.joins(:reviews)
+      .group(:id)
+      .select("books.*, COUNT(reviews.id) AS review_count")
+  end
+
+
+
+
+
 end
