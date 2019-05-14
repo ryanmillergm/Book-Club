@@ -2,7 +2,25 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
+    @sort = params[:sort]
     @top_reviewers = User.top_reviewers
+    if @sort != nil
+     if @sort == "pages_asc"
+       @books = Book.sort_pages('pages ASC')
+     elsif @sort == "pages_desc"
+       @books = Book.sort_pages('pages DESC')
+     elsif @sort == "reviews_asc"
+       @books == Book.sort_reviews('review_count ASC')
+     elsif @sort == "reviews_desc"
+       @books = Book.sort_reviews('review_count DESC')
+     elsif @sort == "ratings_desc"
+       @books = Book.order('ratings DESC')
+     else
+       @books = Book.all
+     end
+
+   end
+    
   end
 
   def show
@@ -41,7 +59,6 @@ class BooksController < ApplicationController
   end
 
   private
-
 
   def book_params
     params.require(:book).permit(:title, :pages, :year_published, :book_img_url)

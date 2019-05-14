@@ -6,6 +6,7 @@ RSpec.describe 'book index page', type: :feature do
     @book_2 = Book.create!(title: "Book_2", pages: 302, year_published: 1999, book_img_url: "google.com")
     @book_3 = Book.create!(title: "Book_3", pages: 350, year_published: 1999, book_img_url: "google.com")
     @book_4 = Book.create!(title: "Book_4", pages: 300, year_published: 1999, book_img_url: "google.com")
+
     @author_1 = Author.create!(name: "Bill")
     @author_2 = Author.create!(name: "Jerry")
     @author_3 = Author.create!(name: "Tom")
@@ -80,6 +81,14 @@ RSpec.describe 'book index page', type: :feature do
     within "#book-id-#{@book_3.id}" do
       expect(page).to have_link("#{@book_3.title}", href: "/books/#{@book_3.id}")
     end
+  end
+
+  it "books to sort by page" do
+    click_on 'sort'
+
+    expect(page.all(".book-ctn")).to have_content(@book_2.title)
+    expect(page.all(".book-ctn")).to have_content(@book_1.title)
+    expect(page.all(".book-ctn")).to have_content(@book_3.title)
   end
 
   it "Index page shows statistics area" do
