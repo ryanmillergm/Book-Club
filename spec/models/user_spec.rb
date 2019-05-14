@@ -43,6 +43,4 @@ RSpec.describe User, type: :model do
       expect(actual).to eq(expected)
     end
   end
-
-
 end

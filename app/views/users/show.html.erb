@@ -3,12 +3,14 @@
 <h2>User: <%= @user.name %></h2>
 </section>
 <br>
+<li><%= link_to 'Sort Reviews By Newest', user_path(sort:['newest_first','DESC']) %></li>
+<li><%= link_to 'Sort Reviews By Oldest', user_path(sort:['oldest_first','ASC']) %></li>
   <section class="review-description">
     <h1>Reviews</h1>
     <br>
     <br>
     <section class="book-ctn">
-    <% @user.reviews.each do |review| %>
+    <% @reviews.each do |review| %>
       <section class="book-card">
         <section id="review-id-<%= review.id %>">
           <%= link_to "Delete Review", book_review_path(review), method: :delete %>

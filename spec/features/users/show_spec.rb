@@ -62,26 +62,31 @@ RSpec.describe 'User Show Page' do
         expect(page).to have_content("Contents: #{@review_3.text}")
       end
     end
+
+    it 'Sorts users reviews by newest' do
+      visit user_path(@user_1)
+
+      click_on('Sort Reviews By Newest')
+
+      expect(page.all('h2')[1]).to have_content(@review_1.title)
+      expect(page.all('h2')[2]).to have_content(@review_2.title)
+      expect(page.all('h2')[3]).to have_content(@review_3.title)
+    end
+
+    it 'Sorts users reviews by oldest' do
+      visit user_path(@user_1)
+
+      click_on('Sort Reviews By Oldest')
+
+      expect(page.all('h2')[1]).to have_content(@review_3.title)
+      expect(page.all('h2')[2]).to have_content(@review_2.title)
+      expect(page.all('h2')[3]).to have_content(@review_1.title)
+    end
   end
 end
 
-# User Story 18
-# User can delete a book review
-#
 # As a Visitor,
-# When I visit a user's show page,
-# I see a link next to each review to delete the review.
-# When I delete a review I am returned to the user's show page
-# Then I should no longer see that review.
-
-
-
-# I should see all reviews that this
-# user has written.
-# Each review shows:
-# - the title of the review
-# - the description of the review
-# - the rating of the review
-# - the title of the book
-# - the thumbnail image for the book
-# - the date the review was written
+# When I visit a user's show page
+# I should also see links to sort reviews in the following ways:
+# - sort reviews newest first (descending chronological order)
+# - sort reviews oldest first (ascending chronological order)
