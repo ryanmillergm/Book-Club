@@ -25,6 +25,19 @@
     </section>
     <% end %>
   </section>
+
+  <section class="stats-card" id="users-with-most-reviews">
+    <h2>Users with Most Reviews</h2>
+    <br>
+    <% @top_reviewers.each do |user| %>
+    <section id="user-card-<%= user.id %>">
+      <h3><%= link_to user.name, user_path(user) %></h3>
+      <br>
+      <p>Review Count: <%= user.reviews.count %></p>
+      <br>
+    </section>
+    <% end %>
+  </section>
 </section> %>
 
 <section class='new-book-link'>

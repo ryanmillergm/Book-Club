@@ -20,10 +20,10 @@ class Book < ApplicationRecord
   end
 
   def self.highest_rated_books
-    joins(:reviews).order('rating').limit(3)
+    joins(:reviews).group(:id).order('AVG(reviews.rating) DESC').limit(3)
   end
 
   def self.lowest_rated_books
-    joins(:reviews).order('rating desc').limit(3)
+    joins(:reviews).group(:id).order('AVG(reviews.rating) ASC').limit(3)
   end
 end

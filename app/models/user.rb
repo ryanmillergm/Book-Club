@@ -4,11 +4,8 @@ class User < ApplicationRecord
 
   validates_presence_of :name
 
-  # def self.top_reviewers
-    #
-    #
-    #
-    # SELECT count('users'), users.name
+  def self.top_reviewers
+    joins(:reviews).group(:id).order('count(reviews) DESC').limit(3)
     #     FROM users
     #       INNER JOIN reviews ON reviews.user_id = users.id
     #
@@ -20,5 +17,5 @@ class User < ApplicationRecord
         #username and review count
     # joins(:reviews).select("users*, count(user_id)").group(:id
     # joins(:reviews).
-  # end
+  end
 end

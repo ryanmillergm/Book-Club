@@ -95,11 +95,11 @@ RSpec.describe 'book index page', type: :feature do
       end
 
       within "#users-with-most-reviews" do
-        reviewer_1 = @review_2.username
-        reviewer_2 = @review_3.username
-        reviewer_3 = @review_10.username
-        expect(page.body.index(reviewer_2)).to be > page.body.index(reviewer_1)
-        expect(page.body.index(reviewer_3)).to be > page.body.index(reviewer_2)
+        reviewer_1 = @user_1.name
+        reviewer_2 = @user_2.name
+        reviewer_3 = @user_3.name
+        expect(page.body.index(reviewer_1)).to be < page.body.index(reviewer_2)
+        expect(page.body.index(reviewer_2)).to be < page.body.index(reviewer_3)
       end
     end
   end

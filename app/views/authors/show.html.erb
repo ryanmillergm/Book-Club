@@ -13,6 +13,7 @@
           <p>Year Published: <%= book.year_published %></p>
           <img src="<%= book.book_img_url %>">
           <p>Top Review:</p>
+          <%# <% binding.pry %> %>
           <p><%= book.top_review.title %></p>
           <p><%= book.top_review.rating %></p>
           <p><%= book.top_review.text %></p>
