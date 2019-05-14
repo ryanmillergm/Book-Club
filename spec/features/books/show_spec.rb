@@ -80,7 +80,9 @@ RSpec.describe 'book show page', type: :feature do
 
     expect(page).to have_link(@book_1.title)
 
-    click_link @book_1.title
+    within "#book-id-#{@book_1.id}" do
+      click_link @book_1.title
+    end
 
     expect(current_path).to eq(book_path(@book_1))
     expect(page).to have_content(@author_1.name)

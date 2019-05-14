@@ -1,3 +1,6 @@
+<section class='new-book-link'>
+  <p><%= link_to 'Add a new Book', new_book_path %></p>
+</section>
 <h1>Book Statistics</h1>
 <section class="statistics-area">
   <section class="stats-card" id="highest-rated-books">
@@ -38,16 +41,17 @@
     </section>
     <% end %>
   </section>
-</section> %>
-
-<section class='new-book-link'>
-  <p><%= link_to 'Add a new Book', new_book_path %></p>
 </section>
 
-<p><a href="/books?sort=pages_asc">Sort pages ascending</a>
-<p><a href="/books?sort=pages_desc">Sort pages decending</a>
-<p><a href="/books?sort=reviews_desc">Sort Most reviews</a>
-<p><a href="/books?sort=reviews_asc">Sort Least reviews</a>
+<ul>
+  <li><p><a href="/books?sort=pages_asc">Sort pages ascending</a></li>
+  <li><p><a href="/books?sort=pages_desc">Sort pages decending</a></li>
+  <li><p><a href="/books?sort=reviews_desc">Sort Most reviews</a></li>
+  <li><p><a href="/books?sort=reviews_asc">Sort Least reviews</a></li>
+  <li><p><a href="/books?sort=best_ratings">Best Ratings</a></li>
+  <li><p><a href="/books?sort=worst_ratings">Worst Ratings</a></li>
+</ul>
+
 
 <section class='book-ctn'>
   <% @books.each do |book| %>
@@ -59,6 +63,6 @@
           <%= link_to author.name, author_path(author) %></p>
           <% end %>
         <img src="<%= book.book_img_url %>">
-    </section>
+      </section>
   <% end %>
 </section>
