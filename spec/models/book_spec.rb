@@ -51,10 +51,15 @@ RSpec.describe Book, type: :model do
       expect(actual).to eq(expected)
     end
 
+    it '.top_reviewers' do
+      expected = [@user_1, @user_2, @user_3]
+      actual = User.top_reviewers
+      expect(actual).to eq(expected)
+    end
+
     it '.top_review' do
       expected = @review_1
       actual = @book_1.top_review
-
       expect(actual).to eq(expected)
     end
   end

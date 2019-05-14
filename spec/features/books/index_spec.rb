@@ -84,7 +84,9 @@ RSpec.describe 'book index page', type: :feature do
   end
 
   it "books to sort by page" do
-    click_on 'sort'
+    visit books_path
+     
+    click_on 'Sort pages ascending'
 
     expect(page.all(".book-ctn")).to have_content(@book_2.title)
     expect(page.all(".book-ctn")).to have_content(@book_1.title)

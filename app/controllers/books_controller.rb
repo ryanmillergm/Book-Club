@@ -20,7 +20,7 @@ class BooksController < ApplicationController
      end
 
    end
-    
+
   end
 
   def show
