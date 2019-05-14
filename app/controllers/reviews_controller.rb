@@ -8,40 +8,17 @@ class ReviewsController < ApplicationController
 
   def create
     @book = Book.find(params[:book_id])
-    @users = User.all
-    if new_user? == true
-      @user = User.create!(user_params)
-      @user.name = @user.name.titleize
-      @user.save
-    else
-      @users.each do |user|
-        if user.name == params["review"][:user]["name"].titleize
-          @user = user
-        end
-      end
-    end
-
-    book = Book.find(params[:book_id])
-    if only_one_review(@user, @book) != true
+    @user = User.find_or_create_by(user_params)
+    @user.name = @user.name.titleize
+    @user.save
+    results = @book.reviews.find{|review| review.user.name == @user.name}
+    if results.nil?
       new_review = @book.reviews.create(review_params)
       @user.reviews << new_review
       new_review.save!
       redirect_to book_path(@book)
     else
       redirect_to book_path(@book)
-      flash[:notice] = "You can only create one review for this book"
-    end
-  end
-
-  def new_user?
-    @users.any? do |user|
-      user.name != params["review"][:user]["name"].titleize
-    end
-  end
-
-  def only_one_review(user, book)
-    book.reviews.any? do |review|
-      user.id == review.user_id
     end
   end
 
@@ -50,8 +27,6 @@ class ReviewsController < ApplicationController
     @review.destroy
     redirect_to user_path(params[:id])
   end
-
-
 
   private
 
