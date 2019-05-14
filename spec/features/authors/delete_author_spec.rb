@@ -30,7 +30,6 @@ RSpec.describe 'User can delete Author' do
       expect(page).to_not have_content('Title: Book_1')
       expect(page).to_not have_content('Pages: 300')
       expect(page).to_not have_content('Year Published: 1999')
-      expect(page).to_not have_content('Title: Book_1')
       expect(Author.all).to eq([@author_2])
     end
   end
