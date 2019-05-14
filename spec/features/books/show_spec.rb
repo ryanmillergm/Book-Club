@@ -12,12 +12,16 @@ RSpec.describe 'book show page', type: :feature do
     @author_2.books << @book_2
     @author_3.books << @book_3
     @user_1 = User.create!(name: "Henry")
-    @review_1 = @book_1.reviews.create!(title: "Review_1", rating: 3, text: "Review 1 description")
-    @review_2 = @book_1.reviews.create!(title: "Review_2", rating: 2, text: "Review 2 description")
-    @review_3 = @book_1.reviews.create!(title: "Review_3", rating: 4, text: "Review 3 description")
+    @review_1 = @book_1.reviews.create!(title: "Review_1", rating: 5, text: "Review 1 description")
+    @review_2 = @book_1.reviews.create!(title: "Review_2", rating: 4, text: "Review 2 description")
+    @review_3 = @book_1.reviews.create!(title: "Review_3", rating: 3, text: "Review 3 description")
+    @review_4 = @book_1.reviews.create!(title: "Review_4", rating: 2, text: "Review 1 description")
+    @review_5 = @book_1.reviews.create!(title: "Review_5", rating: 1, text: "Review 2 description")
     @user_1.reviews << @review_1
     @user_1.reviews << @review_2
     @user_1.reviews << @review_3
+    @user_1.reviews << @review_4
+    @user_1.reviews << @review_5
   end
 
   it 'Show page shows book and info' do
@@ -56,21 +60,21 @@ RSpec.describe 'book show page', type: :feature do
     within "#review-id-#{@review_1.id}" do
       expect(page).to have_content('Title: Review_1')
       expect(page).to have_content('User: Henry')
-      expect(page).to have_content('Rating: 3')
+      expect(page).to have_content('Rating: 5')
       expect(page).to have_content('Contents: Review 1 description')
     end
 
     within "#review-id-#{@review_2.id}" do
       expect(page).to have_content('Title: Review_2')
       expect(page).to have_content('User: Henry')
-      expect(page).to have_content('Rating: 2')
+      expect(page).to have_content('Rating: 4')
       expect(page).to have_content('Contents: Review 2 description')
     end
 
     within "#review-id-#{@review_3.id}" do
       expect(page).to have_content('Title: Review_3')
       expect(page).to have_content('User: Henry')
-      expect(page).to have_content('Rating: 4')
+      expect(page).to have_content('Rating: 3')
       expect(page).to have_content('Contents: Review 3 description')
     end
   end
@@ -87,15 +91,52 @@ RSpec.describe 'book show page', type: :feature do
     expect(current_path).to eq(book_path(@book_1))
     expect(page).to have_content(@author_1.name)
   end
+
+  it "Sorts by top three reviews" do
+    visit book_path(@book_1)
+
+    within ".top_three_reviews" do
+      expect(page.all('p')[0]).to have_content("Title: #{@review_1.title}")
+      expect(page.all('p')[1]).to have_content("Rating: #{@review_1.rating}")
+      expect(page.all('p')[2]).to have_content("User: #{@review_1.user.name}")
+      expect(page.all('p')[3]).to have_content("Title: #{@review_2.title}")
+      expect(page.all('p')[4]).to have_content("Rating: #{@review_2.rating}")
+      expect(page.all('p')[5]).to have_content("User: #{@review_2.user.name}")
+      expect(page.all('p')[6]).to have_content("Title: #{@review_3.title}")
+      expect(page.all('p')[7]).to have_content("Rating: #{@review_3.rating}")
+      expect(page.all('p')[8]).to have_content("User: #{@review_3.user.name}")
+    end
+  end
+
+  it "Sorts by bottom three reviews" do
+    visit book_path(@book_1)
+
+    within ".bottom_three_reviews" do
+      expect(page.all('p')[0]).to have_content("Title: #{@review_5.title}")
+      expect(page.all('p')[1]).to have_content("Rating: #{@review_5.rating}")
+      expect(page.all('p')[2]).to have_content("User: #{@review_5.user.name}")
+      expect(page.all('p')[3]).to have_content("Title: #{@review_4.title}")
+      expect(page.all('p')[4]).to have_content("Rating: #{@review_4.rating}")
+      expect(page.all('p')[5]).to have_content("User: #{@review_4.user.name}")
+      expect(page.all('p')[6]).to have_content("Title: #{@review_3.title}")
+      expect(page.all('p')[7]).to have_content("Rating: #{@review_3.rating}")
+      expect(page.all('p')[8]).to have_content("User: #{@review_3.user.name}")
+    end
+  end
+
+  it "Sorts by overall average rating" do
+    visit book_path(@book_1)
+
+    within ".overall_average_rating" do
+      expect(page).to have_content("Overall Average Rating: 3")
+    end
+  end
 end
 
-# User Story 19
-# User can delete a book
 #
 # As a Visitor,
 # When I visit a book's show page,
-# I see a link on the page to delete the book.
-# This link should return me to the book index page where I
-# no longer see this book listed.
-#
-# (your controller may need to delete other content before you can delete the book)
+# I see an area on the page for statistics about reviews:
+# - the top three reviews for this book (title, rating and user only)
+# - the bottom three reviews for this book  (title, rating and user only)
+# - the overall average rating of all reviews for this book
