@@ -21,18 +21,45 @@ RSpec.describe Book, type: :model do
     @review_1 = @book_1.reviews.create!(title: "Review_1", rating: 3, text: "Review 1 description")
     @review_2 = @book_1.reviews.create!(title: "Review_2", rating: 2, text: "Review 2 description")
     @review_3 = @book_1.reviews.create!(title: "Review_3", rating: 4, text: "Review 3 description")
+    @review_4 = @book_3.reviews.create!(title: "Review_4", rating: 4, text: "Review 3 description")
   end
 
   describe 'class methods' do
     it 'sorts books by greatest to least pages' do
       expect = Book.sort_pages('pages ASC')
       expected = [@book_2, @book_1, @book_3]
+      expect = expected
     end
 
     it 'sorts books by least pages to greatest' do
       expect = Book.sort_pages('pages DESC')
-      expected = [@book_2, @book_1, @book_3]
+      expected = [@book_3, @book_1, @book_2]
+      expect = expected
     end
+
+    it 'sorts books by lowest number of reviews' do
+      expect = Book.sort_reviews('review_count ASC')
+      expected = expected = [@book_2, @book_3, @book_1]
+      expect = expected
+    end
+
+    it 'sorts books by highest number of reviews' do
+      expect = Book.sort_reviews('review_count DESC')
+      expected = expected = [@book_3, @book_1, @book_2]
+      expect = expected
+    end
+
+    it 'sorts books by lowest average rating' do
+      expect = Book.sort_ratings('review_count ASC')
+      expected = expected = [@book_2, @book_1, @book_3]
+      expect = expected
+    end
+
+    # it 'sorts books by highest average rating' do
+    #   expect = Book.sort_ratings('review_count DESC')
+    #   expected = expected = [@book_2, @book_3, @book_1]
+    #   expect = expected
+    # end
   end
 
 end

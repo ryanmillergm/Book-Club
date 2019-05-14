@@ -24,13 +24,15 @@ class Book < ApplicationRecord
     Book.order(pages)
   end
 
-  def self.sort_reviews(sort_order)
+  def self.sort_reviews(sort_reviews)
     Book.joins(:reviews)
       .group(:id)
       .select("books.*, COUNT(reviews.id) AS review_count")
   end
 
-
+  # def self.sort_ratings(sort_ratings)
+  #   binding.pry
+  # end
 
 
 
