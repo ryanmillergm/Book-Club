@@ -5,18 +5,25 @@ class BooksController < ApplicationController
     @sort = params[:sort]
     @top_reviewers = User.top_reviewers
     if @sort != nil
+
      if @sort == "pages_asc"
        @books = Book.sort_pages('pages ASC')
+
      elsif @sort == "pages_desc"
        @books = Book.sort_pages('pages DESC')
+
      elsif @sort == "reviews_asc"
        @books == Book.sort_reviews('ASC')
+
      elsif @sort == "reviews_desc"
        @books = Book.sort_reviews('DESC')
+
      elsif @sort == "ratings_desc"
        @books = Book.sort_ratings('DESC')
+
      elsif @sort == "ratings_asc"
        @books = Book.sort_ratings('ASC')
+
      else
        @books = Book.all
      end

@@ -98,13 +98,13 @@ RSpec.describe 'book show page', type: :feature do
     within ".top_three_reviews" do
       expect(page.all('p')[0]).to have_content("Title: #{@review_1.title}")
       expect(page.all('p')[1]).to have_content("Rating: #{@review_1.rating}")
-      expect(page.all('p')[2]).to have_content("User: #{@review_1.user.name}")
+      expect(page.all('p')[2]).to have_link(@review_1.user.name)
       expect(page.all('p')[3]).to have_content("Title: #{@review_2.title}")
       expect(page.all('p')[4]).to have_content("Rating: #{@review_2.rating}")
-      expect(page.all('p')[5]).to have_content("User: #{@review_2.user.name}")
+      expect(page.all('p')[5]).to have_link(@review_2.user.name)
       expect(page.all('p')[6]).to have_content("Title: #{@review_3.title}")
       expect(page.all('p')[7]).to have_content("Rating: #{@review_3.rating}")
-      expect(page.all('p')[8]).to have_content("User: #{@review_3.user.name}")
+      expect(page.all('p')[8]).to have_link(@review_3.user.name)
     end
   end
 
@@ -114,13 +114,13 @@ RSpec.describe 'book show page', type: :feature do
     within ".bottom_three_reviews" do
       expect(page.all('p')[0]).to have_content("Title: #{@review_5.title}")
       expect(page.all('p')[1]).to have_content("Rating: #{@review_5.rating}")
-      expect(page.all('p')[2]).to have_content("User: #{@review_5.user.name}")
+      expect(page.all('p')[2]).to have_link(@review_5.user.name)
       expect(page.all('p')[3]).to have_content("Title: #{@review_4.title}")
       expect(page.all('p')[4]).to have_content("Rating: #{@review_4.rating}")
-      expect(page.all('p')[5]).to have_content("User: #{@review_4.user.name}")
+      expect(page.all('p')[5]).to have_link(@review_4.user.name)
       expect(page.all('p')[6]).to have_content("Title: #{@review_3.title}")
       expect(page.all('p')[7]).to have_content("Rating: #{@review_3.rating}")
-      expect(page.all('p')[8]).to have_content("User: #{@review_3.user.name}")
+      expect(page.all('p')[8]).to have_link(@review_3.user.name)
     end
   end
 

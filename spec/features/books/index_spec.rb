@@ -31,8 +31,10 @@ RSpec.describe 'book index page', type: :feature do
     @review_9 = @book_3.reviews.create(title: 'title_9', rating: 5, text: 'body_9')
     @review_10 = @book_4.reviews.create(title: 'title_10', rating: 1, text: 'body_10')
     @review_11 = @book_4.reviews.create(title: 'title_11', rating: 1, text: 'body_11')
+    @review_12 = @book_4.reviews.create(title: 'title_11', rating: 1, text: 'body_11')
+    @review_12 = @book_1.reviews.create(title: 'title_11', rating: 1, text: 'body_11')
 
-    @user_1.reviews = [@review_1, @review_2, @review_5, @review_6]
+    @user_1.reviews = [@review_1, @review_2, @review_5, @review_6, @review_12]
     @user_2.reviews = [@review_3, @review_4, @review_7, @review_8]
     @user_3.reviews = [@review_10, @review_11]
     @user_4.reviews << @review_9
@@ -83,15 +85,40 @@ RSpec.describe 'book index page', type: :feature do
     end
   end
 
-  it "books to sort by page" do
+  it "books to sort by page by ascending" do
     visit books_path
 
-    click_on 'Sort pages ascending'
+    click_on 'Sort By Pages Ascending'
     within ".book-ctn" do
       # binding.pry
       expect(page.all('h2')[0]).to have_content(@book_4.title)
       expect(page.all('h2')[1]).to have_content(@book_2.title)
       expect(page.all('h2')[2]).to have_content(@book_1.title)
+      expect(page.all('h2')[3]).to have_content(@book_3.title)
+    end
+  end
+
+  it "books to sort by pages by descending" do
+    visit books_path
+
+    click_on 'Sort By Pages Descending'
+    within ".book-ctn" do
+      # binding.pry
+      expect(page.all('h2')[0]).to have_content(@book_3.title)
+      expect(page.all('h2')[1]).to have_content(@book_1.title)
+      expect(page.all('h2')[2]).to have_content(@book_2.title)
+      expect(page.all('h2')[3]).to have_content(@book_4.title)
+    end
+  end
+
+  it "books to sort by most reviews" do
+    visit books_path
+
+    click_on 'Sort By Most Reviews'
+    within ".book-ctn" do
+      expect(page.all('h2')[0]).to have_content(@book_1.title)
+      expect(page.all('h2')[1]).to have_content(@book_2.title)
+      expect(page.all('h2')[2]).to have_content(@book_4.title)
       expect(page.all('h2')[3]).to have_content(@book_3.title)
     end
   end
@@ -103,21 +130,21 @@ RSpec.describe 'book index page', type: :feature do
 
     within ".statistics-area" do
       within "#highest-rated-books" do
-        expect(page.body.index("top-book-card-#{@book_3.id}")).to be < page.body.index("top-book-card-#{@book_1.id}")
-        expect(page.body.index("top-book-card-#{@book_1.id}")).to be < page.body.index("top-book-card-#{@book_2.id}")
+        expect(page.all('h3')[0]).to have_content(@book_3.title)
+        expect(page.all('h3')[1]).to have_content(@book_2.title)
+        expect(page.all('h3')[2]).to have_content(@book_1.title)
       end
 
       within "#lowest-rated-books" do
-        expect(page.body.index("btm-book-card-#{@book_4.id}")).to be < page.body.index("btm-book-card-#{@book_2.id}")
-        expect(page.body.index("btm-book-card-#{@book_2.id}")).to be < page.body.index("btm-book-card-#{@book_1.id}")
+        expect(page.all('h3')[0]).to have_content(@book_4.title)
+        expect(page.all('h3')[1]).to have_content(@book_1.title)
+        expect(page.all('h3')[2]).to have_content(@book_2.title)
       end
 
       within "#users-with-most-reviews" do
-        reviewer_1 = @user_1.name
-        reviewer_2 = @user_2.name
-        reviewer_3 = @user_3.name
-        expect(page.body.index(reviewer_1)).to be < page.body.index(reviewer_2)
-        expect(page.body.index(reviewer_2)).to be < page.body.index(reviewer_3)
+        expect(page.all('h3')[0]).to have_content(@user_1.name)
+        expect(page.all('h3')[1]).to have_content(@user_2.name)
+        expect(page.all('h3')[2]).to have_content(@user_3.name)
       end
     end
   end
