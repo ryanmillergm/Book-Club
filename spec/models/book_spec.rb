@@ -129,4 +129,43 @@ RSpec.describe Book, type: :model do
     end
   end
 
+  describe 'book statistics methods' do
+    before :each do
+      @book_1 = Book.create(title: "Book 1", pages: 384, year_published: 2018, book_img_url: "https://prodimage.images-bn.com/pimages/9780735219090_p0_v10_s550x406.jpg")
+      @review_1 = @book_1.reviews.create(title: 'title_1', rating: 5, text: 'body_1')
+      @review_2 = @book_1.reviews.create(title: 'title_2', rating: 4, text: 'body_2')
+      @review_3 = @book_1.reviews.create(title: 'title_3', rating: 3, text: 'body_3')
+      @review_4 = @book_1.reviews.create(title: 'title_4', rating: 2, text: 'body_4')
+      @review_5 = @book_1.reviews.create(title: 'title_5', rating: 1, text: 'body_1')
+
+
+      @user_1 = User.create(name: "Jake")
+      @user_2 = User.create(name: "Ben")
+      @user_3 = User.create(name: "Harry")
+      @user_4 = User.create(name: "Samantha")
+
+      @user_1.reviews = [@review_1, @review_2]
+      @user_2.reviews << @review_3
+      @user_3.reviews << @review_4
+      @user_4.reviews << @review_5
+    end
+
+    it 'sorts by top three reviews' do
+      expected = [@review_1, @review_2, @review_3]
+      actual = @book_1.top_three_reviews
+      expect(actual).to eq(expected)
+    end
+
+    it 'sorts by bottom three reviews' do
+      expected = [@review_5, @review_4, @review_3]
+      actual = @book_1.bottom_three_reviews
+      expect(actual).to eq(expected)
+    end
+
+    it 'has overall average rating of all reviews for this book' do
+      expected = 3
+      actual = @book_1.overall_average_rating
+      expect(actual).to eq(expected)
+    end
+  end
 end

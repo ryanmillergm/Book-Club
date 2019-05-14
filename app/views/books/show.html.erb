@@ -7,6 +7,30 @@
   <p><%= link_to 'Delete Book', book_path(@book), method: :delete %></p>
 </section>
 
+<section class='top_three_reviews'>
+  <% @top_three_reviews.each do |review| %>
+  <h2>Top Three Reviews</h2>
+  <p>Title: <%= review.title %></p>
+  <p>Rating: <%= review.rating %></p>
+  <p>User: <%= review.user.name %></p>
+  <% end %>
+</section>
+
+<section class='bottom_three_reviews'>
+  <% @bottom_three_reviews.each do |review| %>
+  <h2>Bottom Three Reviews</h2>
+  <p>Title: <%= review.title %></p>
+  <p>Rating: <%= review.rating %></p>
+  <p>User: <%= review.user.name %></p>
+  <% end %>
+</section>
+
+<section class='overall_average_rating'>
+  <h2>Overall Average Rating: <%= @overall_average_rating %></h2>
+</section>
+
+
+
 <section class='book-card' id="book-id-<%= @book.id %>">
   <br>
   <br>
