@@ -5,6 +5,4 @@ class Review < ApplicationRecord
 
   validates_presence_of :title, :rating, :text
 
-
-
 end
