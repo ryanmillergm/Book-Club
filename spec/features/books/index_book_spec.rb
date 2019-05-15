@@ -130,6 +130,42 @@ RSpec.describe 'book index page', type: :feature do
     end
   end
 
+  it "books to sort by least reviews" do
+    visit books_path
+
+    click_on 'Sort By Least Reviews'
+    within ".book-ctn" do
+      expect(page.all('h2')[0]).to have_content("Title: #{@book_3.title}")
+      expect(page.all('h2')[1]).to have_content("Title: #{@book_4.title}")
+      expect(page.all('h2')[2]).to have_content("Title: #{@book_2.title}")
+      expect(page.all('h2')[3]).to have_content("Title: #{@book_1.title}")
+    end
+  end
+
+    it "books to sort by Best Ratings" do
+      visit books_path
+
+      click_on 'Sort By Best Ratings'
+      within ".book-ctn" do
+        expect(page.all('h2')[0]).to have_content("Title: #{@book_3.title}")
+        expect(page.all('h2')[1]).to have_content("Title: #{@book_2.title}")
+        expect(page.all('h2')[2]).to have_content("Title: #{@book_1.title}")
+        expect(page.all('h2')[3]).to have_content("Title: #{@book_4.title}")
+      end
+    end
+
+    it "books to sort by Worst Ratings" do
+      visit books_path
+
+      click_on 'Sort By Worst Ratings'
+      within ".book-ctn" do
+        expect(page.all('h2')[0]).to have_content("Title: #{@book_4.title}")
+        expect(page.all('h2')[1]).to have_content("Title: #{@book_1.title}")
+        expect(page.all('h2')[2]).to have_content("Title: #{@book_2.title}")
+        expect(page.all('h2')[3]).to have_content("Title: #{@book_3.title}")
+      end
+    end
+
   it "Index page shows statistics area" do
 
     visit books_path

@@ -11,9 +11,6 @@ class Book < ApplicationRecord
     book.title = book.title.downcase.titleize
   end
 
-  def self.top_reviewers
-   joins(:reviews).group(:id).order('count(reviews) DESC').limit(3)
-  end
 
   def overall_average_rating
     reviews.average(:rating)

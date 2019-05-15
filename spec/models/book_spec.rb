@@ -92,6 +92,12 @@ RSpec.describe Book, type: :model do
       @user_3.reviews << @review_8
     end
 
+    it 'averages ratings' do
+      expected =3.33
+      actual = @book_3.average_rating.round(2)
+      expect(actual).to eq(expected)
+    end
+
     it 'sorts books by greatest to least pages' do
       expected = [@book_4, @book_3, @book_2, @book_1]
       actual = Book.sort_pages('pages DESC')
