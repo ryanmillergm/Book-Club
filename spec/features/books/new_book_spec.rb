@@ -4,7 +4,7 @@ RSpec.describe 'book new page', type: :feature do
   it 'book new page can create new book' do
     visit books_path
 
-    within ".new-book-link" do
+    within ".special-link" do
       click_link("Add a new Book")
     end
 

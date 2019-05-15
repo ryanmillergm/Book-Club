@@ -1,12 +1,18 @@
 
-<section class="user-card">
+<section class="main">
 <h2>User: <%= @user.name %></h2>
 </section>
 <br>
-<li><%= link_to 'Sort Reviews By Newest', user_path(sort:['newest_first','DESC']) %></li>
-<li><%= link_to 'Sort Reviews By Oldest', user_path(sort:['oldest_first','ASC']) %></li>
   <section class="review-description">
-    <h1>Reviews</h1>
+    <section class='user-main'>
+      <h1>Reviews</h1>
+    </section>
+    <section id="sort-methods">
+      <ul>
+        <p><li><%= link_to 'Sort Reviews By Newest', user_path(sort:['newest_first','DESC']) %></li></p>
+        <p><li><%= link_to 'Sort Reviews By Oldest', user_path(sort:['oldest_first','ASC']) %></li></p>
+      </li>
+    </section>
     <br>
     <br>
     <section class="book-ctn">

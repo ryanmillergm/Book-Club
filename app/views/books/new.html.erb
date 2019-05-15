@@ -1,18 +1,36 @@
+<div class="form-title">
+<h1>New Book Form</h1>
+</div>
+<br>
+<br>
+<% @book.errors.full_messages.each do |msg| %>
+<%= msg %>
+<% end %>
+
+<div class="form-field">
 <%= form_for @book do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-
+<br>
+<br>
   <%= f.label :pages %>
   <%= f.number_field :pages %>
-
+<br>
+<br>
   <%= f.label :year_published %>
   <%= f.text_field :year_published %>
-
+<br>
+<br>
   <%= f.label :book_img_url %>
   <%= f.text_field :book_img_url %>
-
+<br>
+<br>
   <%= f.label :authors %>
   <%= f.text_field :authors, value: "" %>
+<br>
+<br>
+<br>
 
-  <%= f.submit %>
+  <%= f.submit class: 'submit-class'%>
 <% end %>
+</div>

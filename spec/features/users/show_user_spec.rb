@@ -31,7 +31,7 @@ RSpec.describe 'User Show Page' do
 
       visit user_path(@user_1)
 
-      within ".user-card" do
+      within ".main" do
         expect(page).to have_content("User: #{@user_1.name}")
       end
 

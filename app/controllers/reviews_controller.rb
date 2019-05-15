@@ -15,8 +15,11 @@ class ReviewsController < ApplicationController
     if results.nil?
       new_review = @book.reviews.create(review_params)
       @user.reviews << new_review
-      new_review.save!
-      redirect_to book_path(@book)
+      if new_review.save
+        redirect_to book_path(@book)
+      else
+        render :new
+      end
     else
       redirect_to book_path(@book)
     end

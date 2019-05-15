@@ -13,7 +13,7 @@ RSpec.describe 'A user can delete a book' do
       it 'The book is deleted' do
         visit book_path(@book_1)
 
-        within('.delete-book-link') do
+        within('.special-link') do
           click_link('Delete Book')
         end
 

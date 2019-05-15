@@ -13,7 +13,7 @@ RSpec.describe 'A review can be successfully created' do
       visit book_path(@book_1)
 
 
-      within ".new-review-link" do
+      within ".special-link" do
         click_link('Add a Review')
       end
 
@@ -39,7 +39,7 @@ RSpec.describe 'A review can be successfully created' do
     it 'Can only create one review per book per user.' do
       visit book_path(@book_1)
 
-      within ".new-review-link" do
+      within ".special-link" do
         click_link('Add a Review')
       end
 
