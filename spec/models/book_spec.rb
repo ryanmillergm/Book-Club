@@ -107,7 +107,7 @@ RSpec.describe Book, type: :model do
     it 'sorts books by least pages to greatest' do
       expected = [@book_1, @book_2, @book_3, @book_4]
       actual = Book.sort_pages('pages ASC')
-      expect(actual).to eq(expected)
+      expect(actual).to eq(expected) 
     end
 
     it 'sorts books by highest number of reviews' do
