@@ -49,6 +49,9 @@ RSpec.describe 'book index page', type: :feature do
       expect(page).to have_content('Pages: 307')
       expect(page).to have_content('Year Published: 1999')
       expect(page).to have_content('Author(s): Bill')
+      expect(page).to have_content("Average Rating: #{@book_1.average_rating}")
+      expect(page).to have_content("Review Count: #{@book_1.reviews.count}")
+
 
     end
 
@@ -58,6 +61,8 @@ RSpec.describe 'book index page', type: :feature do
       expect(page).to have_content('Pages: 302')
       expect(page).to have_content('Year Published: 1999')
       expect(page).to have_content('Author(s): Jerry')
+      expect(page).to have_content("Average Rating: #{@book_2.average_rating}")
+      expect(page).to have_content("Review Count: #{@book_2.reviews.count}")
     end
 
     within "#book-id-#{@book_3.id}" do
@@ -66,6 +71,8 @@ RSpec.describe 'book index page', type: :feature do
       expect(page).to have_content('Pages: 350')
       expect(page).to have_content('Year Published: 1999')
       expect(page).to have_content('Author(s): Tom')
+      expect(page).to have_content("Average Rating: #{@book_3.average_rating}")
+      expect(page).to have_content("Review Count: #{@book_3.reviews.count}")
     end
   end
 
@@ -88,7 +95,7 @@ RSpec.describe 'book index page', type: :feature do
   it "books to sort by page by ascending" do
     visit books_path
 
-    click_on 'Sort By Pages Ascending'
+    click_on 'Sort By Least Pages'
     within ".book-ctn" do
       # binding.pry
       expect(page.all('h2')[0]).to have_content(@book_4.title)
@@ -101,7 +108,7 @@ RSpec.describe 'book index page', type: :feature do
   it "books to sort by pages by descending" do
     visit books_path
 
-    click_on 'Sort By Pages Descending'
+    click_on 'Sort By Most Pages'
     within ".book-ctn" do
       # binding.pry
       expect(page.all('h2')[0]).to have_content(@book_3.title)
@@ -116,10 +123,10 @@ RSpec.describe 'book index page', type: :feature do
 
     click_on 'Sort By Most Reviews'
     within ".book-ctn" do
-      expect(page.all('h2')[0]).to have_content(@book_1.title)
-      expect(page.all('h2')[1]).to have_content(@book_2.title)
-      expect(page.all('h2')[2]).to have_content(@book_4.title)
-      expect(page.all('h2')[3]).to have_content(@book_3.title)
+      expect(page.all('h2')[0]).to have_content("Title: #{@book_1.title}")
+      expect(page.all('h2')[1]).to have_content("Title: #{@book_2.title}")
+      expect(page.all('h2')[2]).to have_content("Title: #{@book_4.title}")
+      expect(page.all('h2')[3]).to have_content("Title: #{@book_3.title}")
     end
   end
 
@@ -130,21 +137,21 @@ RSpec.describe 'book index page', type: :feature do
 
     within ".statistics-area" do
       within "#highest-rated-books" do
-        expect(page.all('h3')[0]).to have_content(@book_3.title)
-        expect(page.all('h3')[1]).to have_content(@book_2.title)
-        expect(page.all('h3')[2]).to have_content(@book_1.title)
+        expect(page.all('h3')[0]).to have_content("Title: #{@book_3.title}")
+        expect(page.all('h3')[1]).to have_content("Title: #{@book_2.title}")
+        expect(page.all('h3')[2]).to have_content("Title: #{@book_1.title}")
       end
 
       within "#lowest-rated-books" do
-        expect(page.all('h3')[0]).to have_content(@book_4.title)
-        expect(page.all('h3')[1]).to have_content(@book_1.title)
-        expect(page.all('h3')[2]).to have_content(@book_2.title)
+        expect(page.all('h3')[0]).to have_content("Title: #{@book_4.title}")
+        expect(page.all('h3')[1]).to have_content("Title: #{@book_1.title}")
+        expect(page.all('h3')[2]).to have_content("Title: #{@book_2.title}")
       end
 
       within "#users-with-most-reviews" do
-        expect(page.all('h3')[0]).to have_content(@user_1.name)
-        expect(page.all('h3')[1]).to have_content(@user_2.name)
-        expect(page.all('h3')[2]).to have_content(@user_3.name)
+        expect(page.all('h3')[0]).to have_content("User: #{@user_1.name}")
+        expect(page.all('h3')[1]).to have_content("User: #{@user_2.name}")
+        expect(page.all('h3')[2]).to have_content("User: #{@user_3.name}")
       end
     end
   end

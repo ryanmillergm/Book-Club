@@ -150,7 +150,7 @@ justify-content: center;
 
 .book-card {
  transition: 0.3s;
- box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+ box-shadow: -10px 0px 10px 1px rgba(0,0,0,0.2);
  width: 29%;
  padding: 5px;
  margin: 25px;

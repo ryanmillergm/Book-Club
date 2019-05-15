@@ -7,9 +7,9 @@
   <section class="stats-card" id="highest-rated-books">
     <h2>Top Books</h2>
     <br>
-    <% @books.highest_rated_books.each do |book| %>
+    <% @highest_rated_books.each do |book| %>
     <section id="top-book-card-<%= book.id %>">
-      <h3><%= link_to book.title, book_path(book) %></h3>
+      <h3>Title: <%= link_to book.title, book_path(book) %></h3>
       <br>
       <p>Average Rating: <%= book.average_rating.round(2) %></p>
       <br>
@@ -20,9 +20,9 @@
   <section class="stats-card" id="lowest-rated-books">
     <h2>Worst Books</h2>
     <br>
-    <% @books.lowest_rated_books.each do |book| %>
+    <% @lowest_rated_books.each do |book| %>
     <section id="btm-book-card-<%= book.id %>">
-      <h3><%= link_to book.title, book_path(book) %></h3>
+      <h3>Title: <%= link_to book.title, book_path(book) %></h3>
       <br>
       <p>Average Rating: <%= book.average_rating.round(2) %></p>
       <br>
@@ -35,7 +35,7 @@
     <br>
     <% @top_reviewers.each do |user| %>
     <section id="user-card-<%= user.id %>">
-      <h3><%= link_to user.name, user_path(user) %></h3>
+      <h3>User: <%= link_to user.name, user_path(user) %></h3>
       <br>
       <p>Review Count: <%= user.reviews.count %></p>
       <br>
@@ -43,6 +43,7 @@
     <% end %>
   </section>
 </section>
+<<<<<<< HEAD
 <h1>Current Reading List</h1>
 <br>
 <br>
@@ -56,17 +57,39 @@
       <li><p><a href="/books?sort=worst_ratings">Sort By Worst Ratings</a></li>
     </ul>
   </section>
+=======
+
+<ul>
+  <li><p><a href="/books?sort=pages_desc">Sort By Most Pages</a></li>
+  <li><p><a href="/books?sort=pages_asc">Sort By Least Pages</a></li>
+  <li><p><a href="/books?sort=reviews_desc">Sort By Most Reviews</a></li>
+  <li><p><a href="/books?sort=reviews_asc">Sort By Least Reviews</a></li>
+  <li><p><a href="/books?sort=best_ratings">Sort By Best Ratings</a></li>
+  <li><p><a href="/books?sort=worst_ratings">Sort By Worst Ratings</a></li>
+</ul>
+
+>>>>>>> master
 
 <section class='book-ctn'>
   <% @books.each do |book| %>
     <section class='book-card' id="book-id-<%= book.id %>">
+      <br>
+      <br>
+      <img src="<%= book.book_img_url %>">
       <h2>Title: <%= link_to book.title, "/books/" + "#{book.id}" %></h2>
         <p>Pages: <%= book.pages %></p>
         <p>Year Published: <%= book.year_published %></p>
         <p>Author(s): <% book.authors.each do |author| %>
           <%= link_to author.name, author_path(author) %></p>
           <% end %>
-        <img src="<%= book.book_img_url %>">
+          <% if book.reviews == [] %>
+            <p> Average Rating: NA </p
+          <% else %>
+        <p>Average Rating: <%= book.average_rating.round(2) %></p>
+          <% end %>
+        <p>Review Count: <%= book.reviews.count %>
+          <br>
+          <br>
       </section>
   <% end %>
 </section>
