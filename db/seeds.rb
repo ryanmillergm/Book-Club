@@ -43,7 +43,7 @@
 @risingson = Book.create(title: "Rising Son", pages: 385, year_published: 1992, book_img_url: "https://upload.wikimedia.org/wikipedia/en/1/15/Big-risingsun.jpg")
 @risingson_review_1 = @risingson.reviews.create(title: "RisingSon_review_1", rating: 4, text: "Review 1 description")
 @risingson_review_2 = @risingson.reviews.create(title: "RisingSon_review_2", rating: 5, text: "Review 2 description")
-@risingson_review_3 = @risingson.reviews.create(title: "RisingSon_review_3", rating: 6, text: "Review 3 description")
+@risingson_review_3 = @risingson.reviews.create(title: "RisingSon_review_3", rating: 2, text: "Review 3 description")
 @risingson_review_4 = @risingson.reviews.create(title: "RisingSon_review_4", rating: 4, text: "Review 4 description")
 @user_1.reviews << @risingson_review_1
 @user_2.reviews << @risingson_review_2
@@ -53,8 +53,8 @@
 
 @fahrenheit451 = Book.create(title: "Fahrenheit 451", pages: 158, year_published: 1953, book_img_url: "https://upload.wikimedia.org/wikipedia/en/d/db/Fahrenheit_451_1st_ed_cover.jpg")
 @fahrenheit451_review_1 = @fahrenheit451.reviews.create(title: "Fahrenheit451_review_1", rating: 5, text: "Review 1 description")
-@fahrenheit451_review_2 = @fahrenheit451.reviews.create(title: "Fahrenheit451_review_2", rating: 5, text: "Review 2 description")
-@fahrenheit451_review_3 = @fahrenheit451.reviews.create(title: "Fahrenheit451_review_3", rating: 5, text: "Review 3 description")
+@fahrenheit451_review_2 = @fahrenheit451.reviews.create(title: "Fahrenheit451_review_2", rating: 2, text: "Review 2 description")
+@fahrenheit451_review_3 = @fahrenheit451.reviews.create(title: "Fahrenheit451_review_3", rating: 4, text: "Review 3 description")
 @user_1.reviews << @fahrenheit451_review_1
 @user_2.reviews << @fahrenheit451_review_2
 @user_3.reviews << @fahrenheit451_review_3
@@ -82,13 +82,13 @@
 
 @lincoln = Book.create(title: "Lincoln", pages: 1984, year_published: 1984, book_img_url: "https://upload.wikimedia.org/wikipedia/commons/1/17/LincolnNovel.jpg")
 @lincoln_review_1 = @lincoln.reviews.create(title: "Lincoln_review_1", rating: 5, text: "Review 1 description")
-@lincoln_review_2 = @lincoln.reviews.create(title: "Lincoln_review_2", rating: 5, text: "Review 2 description")
-@lincoln_review_3 = @lincoln.reviews.create(title: "Lincoln_review_3", rating: 5, text: "Review 3 description")
-@lincoln_review_4 = @lincoln.reviews.create(title: "Lincoln_review_4", rating: 5, text: "Review 4 description")
-@lincoln_review_5 = @lincoln.reviews.create(title: "Lincoln_review_5", rating: 5, text: "Review 5 description")
-@lincoln_review_6 = @lincoln.reviews.create(title: "Lincoln_review_6", rating: 5, text: "Review 6 description")
-@lincoln_review_7 = @lincoln.reviews.create(title: "Lincoln_review_7", rating: 5, text: "Review 7 description")
-@lincoln_review_8 = @lincoln.reviews.create(title: "Lincoln_review_8", rating: 5, text: "Review 8 description")
+@lincoln_review_2 = @lincoln.reviews.create(title: "Lincoln_review_2", rating: 3, text: "Review 2 description")
+@lincoln_review_3 = @lincoln.reviews.create(title: "Lincoln_review_3", rating: 4, text: "Review 3 description")
+@lincoln_review_4 = @lincoln.reviews.create(title: "Lincoln_review_4", rating: 3, text: "Review 4 description")
+@lincoln_review_5 = @lincoln.reviews.create(title: "Lincoln_review_5", rating: 2, text: "Review 5 description")
+@lincoln_review_6 = @lincoln.reviews.create(title: "Lincoln_review_6", rating: 3, text: "Review 6 description")
+@lincoln_review_7 = @lincoln.reviews.create(title: "Lincoln_review_7", rating: 1, text: "Review 7 description")
+@lincoln_review_8 = @lincoln.reviews.create(title: "Lincoln_review_8", rating: 1, text: "Review 8 description")
 @lincoln_review_9 = @lincoln.reviews.create(title: "Lincoln_review_9", rating: 5, text: "Review 9 description")
 @user_1.reviews << @lincoln_review_1
 @user_2.reviews << @lincoln_review_2
