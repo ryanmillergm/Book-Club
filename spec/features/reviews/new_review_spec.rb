@@ -50,10 +50,8 @@ RSpec.describe 'A review can be successfully created' do
 
       click_on "Create Review"
 
-      new_user = User.last
-
       expect(@book_1.reviews.count).to eq(1)
       expect(current_path).to eq(book_path(@book_1))
     end
   end
-  end
+end
