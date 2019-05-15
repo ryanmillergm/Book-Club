@@ -50,7 +50,6 @@ class BooksController < ApplicationController
     @book = Book.find_or_create_by(book_params)
     @book.save
     create_authors
-
     redirect_to book_path(@book)
   end
 

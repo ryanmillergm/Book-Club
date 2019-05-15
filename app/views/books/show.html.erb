@@ -1,63 +1,90 @@
 <br>
-<section class='new-review-link'>
+<section class='special-link'>
   <p><%= link_to 'Add a Review', new_book_review_path(@book) %></p>
-</section>
-
-<section class='delete-book-link'>
   <p><%= link_to 'Delete Book', book_path(@book), method: :delete %></p>
 </section>
-
-<section class='top_three_reviews'>
-  <h2>Top Three Reviews</h2>
-  <% @top_three_reviews.each do |review| %>
-  <p>Title: <%= review.title %></p>
-  <p>Rating: <%= review.rating %></p>
-  <p>User: <%= link_to review.user.name, user_path(review.user) %></p>
-  <% end %>
-</section>
-
-<section class='bottom_three_reviews'>
-  <h2>Bottom Three Reviews</h2>
-  <% @bottom_three_reviews.each do |review| %>
-  <p>Title: <%= review.title %></p>
-  <p>Rating: <%= review.rating %></p>
-  <p>User: <%= link_to review.user.name, user_path(review.user) %></p>
-  <% end %>
-</section>
-
 <section class='overall_average_rating'>
   <h2>Overall Average Rating: <%= @overall_average_rating %></h2>
 </section>
-
-
-
-<section class='book-card' id="book-id-<%= @book.id %>">
-  <br>
-  <br>
-  <img src="<%= @book.book_img_url %>">
-  <h2>Title: <%= @book.title %></h2>
-      <p>Pages: <%= @book.pages %></p>
-      <p>Year Published: <%= @book.year_published %></p>
-  <p>Author(s): <% @book.authors.each do |author| %>
-    <%= link_to author.name, author_path(author) %></p>
-  <% end %>
-  <p>Pages: <%= @book.pages %></p>
-</section>
-<br>
-<br>
-<div class="review-description" %>
-  <h1>Reviews</h1>
-  <br>
-  <br>
-  <% @book.reviews.each do |review| %>
-    <section id="review-id-<%= review.id %>">
-      <h2>Title: <%= review.title %></h2>
-      <br>
-      <p>User: <%= link_to review.user.name, user_path(review.user) %></p>
-      <p>Rating: <%= review.rating %></p>
-      <p>Contents: <%= review.text %></p>
+<section class='main'>
+  <section class='show-book-card' id="book-id-<%= @book.id %>">
+    <br>
+    <br>
+    <img src="<%= @book.book_img_url %>">
+    <h1>Title: <%= @book.title %></h1>
+    <br>
+    <h3>Pages: <%= @book.pages %></h3>
+    <h3>Year Published: <%= @book.year_published %></h3>
+    <h3>Author(s): <% @book.authors.each do |author| %>
+      <%= link_to author.name, author_path(author) %></h3>
+      <% end %>
+      <h3>Pages: <%= @book.pages %></h3>
     </section>
     <br>
     <br>
-  <% end %>
-</div>
+    <h1>Statistics</h1>
+    <br>
+    <br>
+    <br>
+  </main>
+<section class='statistics-area'>
+  <section class='stats-card'>
+    <section class='top_three_reviews'>
+      <h2>Top Three Reviews</h2>
+      <br>
+      <br>
+      <% @top_three_reviews.each do |review| %>
+      <h3>Title: <%= review.title %></h3>
+      <br>
+      <h3>Rating: <%= review.rating %></h3>
+      <br>
+      <h3>User: <%= link_to review.user.name, user_path(review.user) %></h3>
+      <br>
+      <br>
+      <br>
+      <% end %>
+    </section>
+  </section
+  <br>
+  <section class='stats-card'>
+    <section class='bottom_three_reviews'>
+      <h2>Bottom Three Reviews</h2>
+      <br>
+      <br>
+      <% @bottom_three_reviews.each do |review| %>
+      <h3>Title: <%= review.title %></h3>
+      <br>
+      <h3>Rating: <%= review.rating %></h3>
+      <br>
+      <h3>User: <%= link_to review.user.name, user_path(review.user) %></h3>
+      <br>
+      <br>
+      <br>
+      <% end %>
+    </section>
+  </section>
+</section>
+
+
+
+<br>
+<br>
+<br>
+<section class='main'>
+  <section class="review-description" %>
+    <h1>Reviews</h1>
+    <br>
+    <br>
+    <% @book.reviews.each do |review| %>
+      <section id="review-id-<%= review.id %>">
+        <h2>Title: <%= review.title %></h2>
+        <br>
+        <p>User: <%= link_to review.user.name, user_path(review.user) %></p>
+        <p>Rating: <%= review.rating %></p>
+        <p>Contents: <%= review.text %></p>
+      </section>
+      <br>
+      <br>
+    <% end %>
+  </section>
+</section>

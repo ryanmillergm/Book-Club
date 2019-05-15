@@ -1,4 +1,5 @@
-<section class='new-book-link'>
+<br>
+<section class='special-link'>
   <p><%= link_to 'Add a new Book', new_book_path %></p>
 </section>
 <h1>Book Statistics</h1>
@@ -42,16 +43,19 @@
     <% end %>
   </section>
 </section>
-
-<ul>
-  <li><p><a href="/books?sort=pages_asc">Sort By Pages Ascending</a></li>
-  <li><p><a href="/books?sort=pages_desc">Sort By Pages Descending</a></li>
-  <li><p><a href="/books?sort=reviews_desc">Sort By Most Reviews</a></li>
-  <li><p><a href="/books?sort=reviews_asc">Sort By Least Reviews</a></li>
-  <li><p><a href="/books?sort=best_ratings">Sort By Best Ratings</a></li>
-  <li><p><a href="/books?sort=worst_ratings">Sort By Worst Ratings</a></li>
-</ul>
-
+<h1>Current Reading List</h1>
+<br>
+<br>
+  <section id="sort-methods">
+    <ul>
+      <li><p><a href="/books?sort=pages_asc">Sort By Pages Ascending</a></li>
+      <li><p><a href="/books?sort=pages_desc">Sort By Pages Descending</a></li>
+      <li><p><a href="/books?sort=reviews_desc">Sort By Most Reviews</a></li>
+      <li><p><a href="/books?sort=reviews_asc">Sort By Least Reviews</a></li>
+      <li><p><a href="/books?sort=best_ratings">Sort By Best Ratings</a></li>
+      <li><p><a href="/books?sort=worst_ratings">Sort By Worst Ratings</a></li>
+    </ul>
+  </section>
 
 <section class='book-ctn'>
   <% @books.each do |book| %>
