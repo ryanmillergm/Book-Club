@@ -12,6 +12,9 @@
 @johnsteinbeck = Author.create(name: "John Steinbeck")
 @davidblight = Author.create(name: "David Blight")
 @melissabroder = Author.create(name: "Melissa Broder")
+@deliaowens = Author.create(name: "Delia Owens")
+@dianedavidson = Author.create(name: "Diane Davidson")
+@georgemartin = Author.create(name: "George Martin")
 
 @user_1 = User.create(name: "James999")
 @user_2 = User.create(name: "Samantha326")
@@ -23,7 +26,29 @@
 @user_8 = User.create(name: "Heather")
 @user_9 = User.create(name: "Veronica14")
 @user_10 = User.create(name: "Ambernov")
+@user_11 = User.create(name: "Chris321")
 
+@crawdads = Book.create(title: "Where the Crawdads Sing", pages: 245, year_published: 2007, book_img_url: "https://prodimage.images-bn.com/pimages/9780735219090_p0_v10_s550x406.jpg")
+@crawdads_review_1 = @crawdads.reviews.create(title: "Greate Book!", rating: 4, text: "This was an interesting read")
+@user_11.reviews << @crawdads_review_1
+@deliaowens.books << @crawdads
+@dianedavidson.books << @crawdads
+
+@flaky = Book.create(title: "Fatally Flaky", pages: 245, year_published: 2012, book_img_url: "https://prodimage.images-bn.com/pimages/9780061348143_p0_v1_s550x406.jpg")
+@flaky_review_1 = @flaky.reviews.create(title: "It was okay", rating: 3, text: "Not overly suspenseful")
+@flaky_review_2 = @flaky.reviews.create(title: "Boring", rating: 2, text: "Where are the thrills?")
+@user_5.reviews << @flaky_review_2
+@user_11.reviews << @flaky_review_1
+@dianedavidson.books << @flaky
+
+@thrones = Book.create(title: "Game of Thrones", pages: 750, year_published: 1983, book_img_url: "https://prodimage.images-bn.com/pimages/9780345535528_p0_v2_s550x406.jpg")
+@thrones_review_1 = @thrones.reviews.create(title: "Always better than the movie", rating: 5, text: "Always love the books!")
+@thrones_review_2 = @thrones.reviews.create(title: "Love the series", rating: 4, text: "Game of thrones is great")
+@thrones_review_3 = @thrones.reviews.create(title: "Fun read", rating: 4, text: "Love the excitement")
+@user_3.reviews << @thrones_review_1
+@user_11.reviews << @thrones_review_2
+@user_5.reviews << @thrones_review_2
+@georgemartin.books << @thrones
 
 @sphere = Book.create(title: "Sphere", pages: 345, year_published: 1987, book_img_url: "https://upload.wikimedia.org/wikipedia/en/b/b8/Big-sphere.jpg")
 @sphere_review_1 = @sphere.reviews.create(title: "Sphere_Review_1", rating: 3, text: "Review 1 description")
