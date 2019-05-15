@@ -198,7 +198,7 @@
         1,
         null
       ],
-      "/Users/techoverco-mac/turing/2module/projects/Book-Club/spec/features/authors/show_spec.rb": [
+      "/Users/techoverco-mac/turing/2module/projects/Book-Club/spec/features/authors/show_author_spec.rb": [
         1,
         null,
         1,
@@ -315,7 +315,7 @@
         null,
         null
       ],
-      "/Users/techoverco-mac/turing/2module/projects/Book-Club/spec/features/books/index_spec.rb": [
+      "/Users/techoverco-mac/turing/2module/projects/Book-Club/spec/features/books/index_book_spec.rb": [
         1,
         null,
         1,
@@ -475,7 +475,7 @@
         null,
         null
       ],
-      "/Users/techoverco-mac/turing/2module/projects/Book-Club/spec/features/books/new_spec.rb": [
+      "/Users/techoverco-mac/turing/2module/projects/Book-Club/spec/features/books/new_book_spec.rb": [
         1,
         null,
         1,
@@ -528,7 +528,7 @@
         null,
         null
       ],
-      "/Users/techoverco-mac/turing/2module/projects/Book-Club/spec/features/books/show_spec.rb": [
+      "/Users/techoverco-mac/turing/2module/projects/Book-Club/spec/features/books/show_book_spec.rb": [
         1,
         null,
         1,
@@ -801,7 +801,7 @@
         null,
         null
       ],
-      "/Users/techoverco-mac/turing/2module/projects/Book-Club/spec/features/users/show_spec.rb": [
+      "/Users/techoverco-mac/turing/2module/projects/Book-Club/spec/features/users/show_user_spec.rb": [
         1,
         null,
         1,
@@ -1394,7 +1394,6 @@
         2,
         2,
         2,
-        null,
         2,
         null,
         null,
@@ -1462,6 +1461,9 @@
         1,
         1,
         null,
+        0,
+        null,
+        null,
         1,
         null,
         null,
@@ -1485,6 +1487,6 @@
         null
       ]
     },
-    "timestamp": 1557888869
+    "timestamp": 1557899487
   }
 }
