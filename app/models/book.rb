@@ -33,7 +33,7 @@ class Book < ApplicationRecord
   end
 
   def self.sort_pages(pages)
-    Book.order(pages)
+    self.order(pages)
   end
 
   def self.sort_reviews(sort_reviews)
